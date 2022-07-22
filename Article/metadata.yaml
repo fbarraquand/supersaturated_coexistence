@@ -1,0 +1,115 @@
+# To be filled by the author(s) at the time of submission
+# -------------------------------------------------------
+
+# Title of the article:
+#  - For a successful replication, it should be prefixed with "[Re]"
+#  - For a failed replication, it should be prefixed with "[¬Re]"
+#  - For other article types, no instruction (but please, not too long)
+title: "[Re] Biodiversity of plankton by species oscillations and chaos"
+
+# List of authors with name, orcid number, email and affiliation
+# Affiliation "*" means contact author (required even for single-authored papers)
+authors:
+  - name: Frédéric Barraquand
+    orcid:  https://orcid.org/0000-0002-4759-0269
+    email: frederic.barraquand@u-bordeaux.fr 
+    affiliations: 1,*
+    
+  - name: Coralie Picoche
+    orcid:  https://orcid.org/0000-0002-0867-2130
+    email: coralie.picoche@u-bordeaux.fr
+    affiliations: 1
+
+  - name: Guillaume Doyen
+    orcid:
+    email: gdoyen001@bordeaux-inp.fr
+    affiliations: 1
+
+# List of affiliations with code (corresponding to author affiliations), name
+# and address. You can also use these affiliations to add text such as "Equal
+# contributions" as name (with no address).
+affiliations:
+  - code:    1
+    name:    Institut de Mathématiques de Bordeaux, CNRS UMR5251
+    address: Bordeaux, France
+
+# List of keywords (adding the programming language might be a good idea)
+keywords: rescience c, rescience x, R,ecological modelling,plankton 
+
+# Code URL and DOI/SWH (url is mandatory for replication, doi after acceptance)
+# You can get a DOI for your code from Zenodo, or an SWH identifier from
+# Software Heritage.
+#   see https://guides.github.com/activities/citable-code/
+code:
+  - url: https://github.com/fbarraquand/supersaturated_coexistence
+  - doi: 
+  - swh: 
+
+# Data URL and DOI (optional if no data)
+data:
+  - url:
+  - doi:
+
+# Information about the original article that has been replicated
+replication:
+ - cite: Huisman, J., Weissing, F. Biodiversity of plankton by species oscillations and chaos. Nature 402, 407–410 (1999). https://doi.org/10.1038/46540 # Full textual citation
+ - bib: 1999:Huisman # Bibtex key (if any) in your bibliography file
+ - url: https://rdcu.be/cR83N # URL to the PDF, try to link to a non-paywall version
+ - doi: 10.1038/46540 # Regular digital object identifier
+
+# Don't forget to surround abstract with double quotes
+abstract: "Huisman and Weissing (1999) propose to solve the paradox of plankton using a resource-based differential equations model demonstrating oscilations and chaos. Here we successfully reproduced their results and figures using R. We added two numerical experiments showing, however, that theses results are not robust to mild pertubations of the intrinsic growth rates."
+# Bibliography file (yours)
+bibliography: bibliography.bib
+  
+# Type of the article
+# Type can be:
+#  * Editorial
+#  * Letter
+#  * Replication
+type: Replication
+
+# Scientific domain of the article (e.g. Computational Neuroscience)
+#  (one domain only & try to be not overly specific)
+domain: ecology 
+
+# Coding language (main one only if several)
+language: R
+
+  
+# To be filled by the author(s) after acceptance
+# -----------------------------------------------------------------------------
+
+# For example, the URL of the GitHub issue where review actually occured
+review: 
+  - url: 
+
+contributors:
+  - name:
+    orcid: 
+    role: editor
+  - name:
+    orcid:
+    role: reviewer
+  - name:
+    orcid:
+    role: reviewer
+
+# This information will be provided by the editor
+dates:
+  - received:  November 1, 2018
+  - accepted:
+  - published: 
+
+# This information will be provided by the editor
+article:
+  - number: # Article number will be automatically assigned during publication
+  - doi:    # DOI from Zenodo
+  - url:    # Final PDF URL (Zenodo or rescience website?)
+
+# This information will be provided by the editor
+journal:
+  - name:   "ReScience C"
+  - issn:   2430-3658
+  - volume: 4
+  - issue:  1
