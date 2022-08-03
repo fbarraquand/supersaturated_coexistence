@@ -113,13 +113,13 @@
       
       #sometimes the simulation can generate error such as negative or NA values.
       #Before saving the data we check if it's the case or not.
-      if((!is.na(results_exp1[dim(results_exp1)[1], 2]))&(mean(results_exp1[dim(results_exp1)[1], ])>=0)){
+      if((!is.na(results_exp1[dim(results_exp1)[1], 2]))&(setequal(((results_exp1[dim(results_exp1)[1], 2:13])>=0),rep(T,12)))){
 
         nametxtj <- paste('./DataExp/Exp1/dataresults_exp1_', as.character(j), '.txt',  sep="")
         
         write.table(as.data.frame(results_exp1), nametxtj)
     
-        coex_species_1 <- (results_exp1[, 2:13][dim(results_exp1)[1], ]>0.001)
+        coex_species_1 <- (results_exp1[dim(results_exp1)[1], 2:13]>0.001)
     
         stats_exp1 <- rbind(stats_exp1, c(j, matr_exp1[j, ], sum(coex_species_1)))
       }
