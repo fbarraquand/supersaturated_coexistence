@@ -39,17 +39,17 @@
   {
     #initial state : 
     R_j_1_0_exp1<-S_exp1
-    names(R_j_1_0_exp1) <- c(paste("R", 1:5, sep=""))
+    names(R_j_1_0_exp1) <- c(paste("R", 1:5, sep = ""))
     N_j_1_0_exp1<- c(0.1+(1:5)/100, rep(0, 7))
-    names(N_j_1_0_exp1) <- c(paste("N", 1:12, sep=""))
+    names(N_j_1_0_exp1) <- c(paste("N", 1:12, sep = ""))
     X_j_1_0_exp1<- c(N_j_1_0_exp1, R_j_1_0_exp1)
     
     
     #times sequences for the output:
-    times_1_exp1<-seq(0, 1000, by=D_exp1)
-    times_2_exp1<-seq(1000, 3000, by=D_exp1)
-    times_3_exp1<-seq(3000, 5000, by=D_exp1)
-    times_4_exp1<-seq(5000, 10000, by=D_exp1)
+    times_1_exp1<-seq(0, 1000, by = D_exp1)
+    times_2_exp1<-seq(1000, 3000, by = D_exp1)
+    times_3_exp1<-seq(3000, 5000, by = D_exp1)
+    times_4_exp1<-seq(5000, 10000, by = D_exp1)
   }
   
   #running the experiment : 
@@ -69,7 +69,7 @@
       #First period (Species 1-2-3-4-5)
       {
         #use of the ode function from the deSolve library
-        results_1_exp1<-round(ode(X_j_1_0_exp1, times_1_exp1, dXt, parameters_exp1), digits=4)
+        results_1_exp1<-round(ode(X_j_1_0_exp1, times_1_exp1, dXt, parameters_exp1), digits = 4)
       }
       
       #Second period (Species 1-2-3-4-5-6-7-8)
@@ -79,7 +79,7 @@
         X_j_2_0_exp1[6:8]<- c(0.1, 0.1, 0.1)
 
         #use of the ode function from the deSolve library
-        results_2_exp1<-round(ode(X_j_2_0_exp1, times_2_exp1, dXt, parameters_exp1), digits=4)
+        results_2_exp1<-round(ode(X_j_2_0_exp1, times_2_exp1, dXt, parameters_exp1), digits = 4)
       }
       
       #Third period (Species 1-2-3-4-5-6-7-8-9-10)
@@ -89,7 +89,7 @@
         X_j_3_0_exp1[9:10]<- c(0.1, 0.1)
         
         #use of the ode function from the deSolve library
-        results_3_exp1<-round(ode(X_j_3_0_exp1, times_3_exp1, dXt, parameters_exp1), digits=4)
+        results_3_exp1<-round(ode(X_j_3_0_exp1, times_3_exp1, dXt, parameters_exp1), digits = 4)
       }
       
       #Fourth period (Species 1-2-3-4-5-6-7-8-9-10-11-12)
@@ -99,7 +99,7 @@
         X_j_4_0_exp1[11:12]<- c(0.1, 0.1)
    
         #use of the ode function from the deSolve library
-        results_4_exp1<-round(ode(X_j_4_0_exp1, times_4_exp1, dXt, parameters_exp1), digits=4)
+        results_4_exp1<-round(ode(X_j_4_0_exp1, times_4_exp1, dXt, parameters_exp1), digits = 4)
       }
     }  
     
@@ -113,9 +113,9 @@
       
       #sometimes the simulation can generate error such as negative or NA values.
       #Before saving the data we check if it's the case or not.
-      if((!is.na(results_exp1[dim(results_exp1)[1], 2]))&(setequal(((results_exp1[dim(results_exp1)[1], 2:13])>=0),rep(T,12)))){
+      if((!is.na(results_exp1[dim(results_exp1)[1], 2]))&(setequal(((results_exp1[dim(results_exp1)[1], 2:13])> = 0),rep(T,12)))){
 
-        nametxtj <- paste('./DataExp/Exp1/dataresults_exp1_', as.character(j), '.txt',  sep="")
+        nametxtj <- paste('./DataExp/Exp1/dataresults_exp1_', as.character(j), '.txt',  sep = "")
         
         write.table(as.data.frame(results_exp1), nametxtj)
     
@@ -128,12 +128,12 @@
   }
   
   #saving the statistics 
-  names(stats_exp1) <- c("N°", paste("r", 1:12, sep=""), "Number of coexisting species")
+  names(stats_exp1) <- c("N°", paste("r", 1:12, sep = ""), "Number of coexisting species")
   write.table(stats_exp1, "./DataExp/Exp1/stats_exp1.txt")
 
   #displaying it 
-  results_exp1 <- data.frame(Probability=c(colSums(outer(stats_exp1[-1, 14], 0:12, "==")), sum(stats_exp1[-1, 14]>5))*(100/dim(stats_exp1[-1, ])[1]))
-  row.names(results_exp1) <- c(paste(0:12, "species", sep=" "), "Supersaturated")
+  results_exp1 <- data.frame(Probability = c(colSums(outer(stats_exp1[-1, 14], 0:12, " = = ")), sum(stats_exp1[-1, 14]>5))*(100/dim(stats_exp1[-1, ])[1]))
+  row.names(results_exp1) <- c(paste(0:12, "species", sep = " "), "Supersaturated")
   write.table(results_exp1, "./DataExp/Exp1/results_exp1.txt")
   
   #Saving the results as LaTex tables : 
@@ -170,14 +170,14 @@
   #initial state : 
   { 
     R_exp20<-S_exp2
-    names(R_exp20) <- c(paste("R", 1:5, sep=""))
+    names(R_exp20) <- c(paste("R", 1:5, sep = ""))
     N_exp20<- c(0.1+(1:12)/100)
-    names(N_exp20) <- c(paste("N", 1:12, sep=""))
+    names(N_exp20) <- c(paste("N", 1:12, sep = ""))
     X_exp20<- c(N_exp20, R_exp20)
   }
   
   #times sequence for the output:
-  times_exp2<-seq(0, 10000, by=D_exp2)
+  times_exp2<-seq(0, 10000, by = D_exp2)
   
   parameters_exp2j<-makeparameters(rep(0, 12), D_exp2, m_exp2, S_exp2, K_exp2, C_exp2)#parameter matrix
   
@@ -189,9 +189,9 @@
     }
   
     #use of the ode function from the deSolve library
-    results_exp2j<-round(ode(X_exp20, times_exp2, dXt, parameters_exp2j), digits=4)
+    results_exp2j<-round(ode(X_exp20, times_exp2, dXt, parameters_exp2j), digits = 4)
   
-    nametxtj <- paste('./DataExp/Exp2/dataresults_exp2_', as.character(j), '.txt',  sep="")
+    nametxtj <- paste('./DataExp/Exp2/dataresults_exp2_', as.character(j), '.txt',  sep = "")
     write.table(as.data.frame(results_exp2j), nametxtj)
     
     coex_species_2 <- (results_exp2j[, 2:13][dim(results_exp2j)[1], ]>0.001)
@@ -200,11 +200,11 @@
       
   }
   
-  names(stats_exp2) <- c("N°", paste("r", 1:12, sep=""), "Number of coexisting species")
+  names(stats_exp2) <- c("N°", paste("r", 1:12, sep = ""), "Number of coexisting species")
   write.table(stats_exp2, "./DataExp/Exp2/stats_exp2.txt")
   
-  results_exp2 <- data.frame(Probability=c(colSums(outer(stats_exp2[-1, 14], 0:12, "==")), sum(stats_exp2[-1, 14]>5))*(100/dim(stats_exp2[-1, ])[1]))
-  row.names(results_exp2) <- c(paste(0:12, "species", sep=" "), "Supersaturated")
+  results_exp2 <- data.frame(Probability = c(colSums(outer(stats_exp2[-1, 14], 0:12, " = = ")), sum(stats_exp2[-1, 14]>5))*(100/dim(stats_exp2[-1, ])[1]))
+  row.names(results_exp2) <- c(paste(0:12, "species", sep = " "), "Supersaturated")
   
   write.table(results_exp2, "./DataExp/Exp2/results_exp2.txt")
   

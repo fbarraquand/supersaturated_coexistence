@@ -22,16 +22,16 @@ source("Script_Functions.R")
   {
     R_0_1ab<-S_1ab
     names(R_0_1ab) <- c("R1", "R2", "R3")
-    N_0_1ab<-0.1+(1:3)/100 #as specified in the article, "Ni=0.1 + i/100" 
+    N_0_1ab<-0.1+(1:3)/100 #as specified in the article, "Ni = 0.1 + i/100" 
     names(N_0_1ab)<-c("N1", "N2", "N3")
     X_0_1ab<-c(N_0_1ab, R_0_1ab)
   }
   
   #time sequence for the output
-  times_1ab<-seq(0, 200, by=D_1ab)
+  times_1ab<-seq(0, 200, by = D_1ab)
   
   #use of the ode function from the deSolve library to solve the differential equation : 
-  results_1ab<-round(ode(y=X_0_1ab, times=times_1ab, func=dXt, parms=parameters_1ab), digits=4)
+  results_1ab<-round(ode(y = X_0_1ab, times = times_1ab, func = dXt, parms = parameters_1ab), digits = 4)
   
   #saving the data to plot it later
   write.table(as.data.frame(results_1ab[, -(5:7)]), "./DataHW1999/dataresults_1ab.txt")
@@ -73,7 +73,7 @@ source("Script_Functions.R")
     times_1_1c<-seq(0, 1000, D_1c) #because species 4 start at t = 1,000
     
     #use of the ode function from the deSolve library
-    results_1_1c<-round(ode(X_1_0_1c, times_1_1c, dXt, parameters_1c), digits=4)
+    results_1_1c<-round(ode(X_1_0_1c, times_1_1c, dXt, parameters_1c), digits = 4)
   }
 
   #Second period (Species 1-2-3-4)
@@ -86,7 +86,7 @@ source("Script_Functions.R")
     times_2_1c<-seq(1000, 2000, D_1c) #because species 5 start at t = 2,000
     
     #use of the ode function from the deSolve library
-    results_2_1c<-round(ode(X_2_0_1c, times_2_1c, dXt, parameters_1c), digits=4)
+    results_2_1c<-round(ode(X_2_0_1c, times_2_1c, dXt, parameters_1c), digits = 4)
   }
   
   #Third period (Species 1-2-3-4-5)
@@ -99,7 +99,7 @@ source("Script_Functions.R")
     times_3_1c<-seq(2000, 5000, D_1c)#because species 6 start at t = 5,000
     
     #use of the ode function from the deSolve library
-    results_3_1c<-round(ode(X_3_0_1c, times_3_1c, dXt, parameters_1c), digits=4)
+    results_3_1c<-round(ode(X_3_0_1c, times_3_1c, dXt, parameters_1c), digits = 4)
   }
   
   #Fourth period (Species 1-2-3-4-5-6)
@@ -112,7 +112,7 @@ source("Script_Functions.R")
     times_4_1c<-seq(5000, 15000, D_1c)#until the end of the simulation
     
     #use of the ode function from the deSolve library
-    results_4_1c<-round(ode(X_4_0_1c, times_4_1c, dXt, parameters_1c), digits=4)
+    results_4_1c<-round(ode(X_4_0_1c, times_4_1c, dXt, parameters_1c), digits = 4)
   }
   
   #transforming and saving the data to plot it 
@@ -166,7 +166,7 @@ source("Script_Functions.R")
       times_1_1d<-seq(0, 250, D_1d)
       
       #use of the ode function from the deSolve library
-      results_1_1d<-round(ode(X_1_0_1d, times_1_1d, dXt, parameters_1d), digits=4)
+      results_1_1d<-round(ode(X_1_0_1d, times_1_1d, dXt, parameters_1d), digits = 4)
   }
     
     #Second period (Species 1-2-3-4)
@@ -179,7 +179,7 @@ source("Script_Functions.R")
       times_2_1d<-seq(250, 500, D_1d)
       
       #use of the ode function from the deSolve library
-      results_2_1d<-round(ode(X_2_0_1d, times_2_1d, dXt, parameters_1d), digits=4)
+      results_2_1d<-round(ode(X_2_0_1d, times_2_1d, dXt, parameters_1d), digits = 4)
   }
     
     #Third period (Species 1-2-3-4-5)
@@ -192,7 +192,7 @@ source("Script_Functions.R")
       times_3_1d<-seq(500, 750, D_1d)
       
       #use of the ode function from the deSolve library
-      results_3_1d<-round(ode(X_3_0_1d, times_3_1d, dXt, parameters_1d), digits=4)
+      results_3_1d<-round(ode(X_3_0_1d, times_3_1d, dXt, parameters_1d), digits = 4)
   }
     
     #Fourth period (Species 1-2-3-4-5-6)
@@ -205,7 +205,7 @@ source("Script_Functions.R")
       times_4_1d<-seq(750, 1000, D_1d)
       
       #use of the ode function from the deSolve library
-      results_4_1d<-round(ode(X_4_0_1d, times_4_1d, dXt, parameters_1d), digits=4)
+      results_4_1d<-round(ode(X_4_0_1d, times_4_1d, dXt, parameters_1d), digits = 4)
   }
     
     #Fifth period (Species 1-2-3-4-5-6-7)
@@ -218,7 +218,7 @@ source("Script_Functions.R")
       times_5_1d<-seq(1000, 1250, D_1d)
       
       #use of the ode function from the deSolve library
-      results_5_1d<-round(ode(X_5_0_1d, times_5_1d, dXt, parameters_1d), digits=4)
+      results_5_1d<-round(ode(X_5_0_1d, times_5_1d, dXt, parameters_1d), digits = 4)
   }
     
     #Sixth period (Species 1-2-3-4-5-6-8)
@@ -231,7 +231,7 @@ source("Script_Functions.R")
       times_6_1d<-seq(1250, 1500, D_1d)
       
       #use of the ode function from the deSolve library
-      results_6_1d<-round(ode(X_6_0_1d, times_6_1d, dXt, parameters_1d), digits=4)
+      results_6_1d<-round(ode(X_6_0_1d, times_6_1d, dXt, parameters_1d), digits = 4)
   }
       
     #Seventh period (Species 1-2-3-4-5-6-8-9)
@@ -244,7 +244,7 @@ source("Script_Functions.R")
       times_7_1d<-seq(1500, 3000, D_1d)
       
       #use of the ode function from the deSolve library
-      results_7_1d<-round(ode(X_7_0_1d, times_7_1d, dXt, parameters_1d), digits=4)
+      results_7_1d<-round(ode(X_7_0_1d, times_7_1d, dXt, parameters_1d), digits = 4)
   }
     
   }
@@ -289,10 +289,10 @@ source("Script_Functions.R")
   }
   
   #times sequence for the output:
-  times_2abc<-seq(0, 2000, by=D_2abc)
+  times_2abc<-seq(0, 2000, by = D_2abc)
   
   #use of the ode function from the deSolve library
-  results_2abc<-round(ode(X_0_2abc, times_2abc, dXt, parameters_2abc), digits=4)
+  results_2abc<-round(ode(X_0_2abc, times_2abc, dXt, parameters_2abc), digits = 4)
   
   
   #transforming the data to plot it
@@ -314,10 +314,10 @@ source("Script_Functions.R")
 {
   #parameters : (according to the article, in "Methods") 
   {
-    r_3ab=rep(1, 5)
-    D_3ab=0.25
-    m_3ab=rep(D_3ab, 5)
-    S_3ab=c(6, 10, 14, 4, 9)
+    r_3ab = rep(1, 5)
+    D_3ab = 0.25
+    m_3ab = rep(D_3ab, 5)
+    S_3ab = c(6, 10, 14, 4, 9)
     
     K_3ab<- matrix(scan("./Matrix_K/K_23.txt"), 5, 5, T)
     C_3ab<- matrix(scan("./Matrix_C/C_23.txt"), 5, 5, T)
@@ -329,7 +329,7 @@ source("Script_Functions.R")
   R_3ab0 <- S_3ab
   X_3ab0 <- c(N_3ab0, R_3ab0)
   
-  times_3ab=seq(0, 4000, D_3ab)
+  times_3ab = seq(0, 4000, D_3ab)
   
   #matrix the will recieve the results during each loop :
   results_3ab <- c() 
@@ -340,9 +340,9 @@ source("Script_Functions.R")
     
     parameters_3ab[4, 1, 1] <- K_41_j_3ab#allocating the new value of K
     
-    results_3abj<-round(ode(X_3ab0, times_3ab, dXt, parameters_3ab), digits=4)
+    results_3abj<-round(ode(X_3ab0, times_3ab, dXt, parameters_3ab), digits = 4)
     
-    #saving the values between t=2,000 and t=4,000 :
+    #saving the values between t = 2,000 and t = 4,000 :
     results_3abj_u <- unique(results_3abj[(2000/D_3ab):(4000/D_3ab), 2])
     
     results_3ab <- rbind(results_3ab,cbind(rep(K_41_j_3ab,length(results_3abj_u)),results_3abj_u))
@@ -395,17 +395,17 @@ source("Script_Functions.R")
       #initial state : 
       {     
         R_4ab10<-S_4ab
-        names(R_4ab10) <- c(paste("R", 1:5, sep=""))
+        names(R_4ab10) <- c(paste("R", 1:5, sep = ""))
         N_4ab10<- c(0.1+(1:5)/100, rep(0, 7))
-        names(N_4ab10) <- c(paste("N", 1:12, sep=""))
+        names(N_4ab10) <- c(paste("N", 1:12, sep = ""))
         X_4ab10<- c(N_4ab10, R_4ab10)
       }
     
       #times sequence for the output:
-      times_4ab1<-seq(0, 1000, by=D_4ab)
+      times_4ab1<-seq(0, 1000, by = D_4ab)
       
       #use of the ode function from the deSolve library
-      results_4ab1<-round(ode(X_4ab10, times_4ab1, dXt, parameters_4ab), digits=4)
+      results_4ab1<-round(ode(X_4ab10, times_4ab1, dXt, parameters_4ab), digits = 4)
     }
       
     #Second period (Species 1-2-3-4-5-6-7-8)
@@ -415,10 +415,10 @@ source("Script_Functions.R")
       X_4ab20[6:8]<- c(0.1, 0.1, 0.1)
       
       #times sequence for the output:
-      times_4ab2<-seq(1000, 3000, by=D_4ab)
+      times_4ab2<-seq(1000, 3000, by = D_4ab)
       
       #use of the ode function from the deSolve library
-      results_4ab2<-round(ode(X_4ab20, times_4ab2, dXt, parameters_4ab), digits=4)
+      results_4ab2<-round(ode(X_4ab20, times_4ab2, dXt, parameters_4ab), digits = 4)
     }
       
     #Third period (Species 1-2-3-4-5-6-7-8-9-10)
@@ -428,10 +428,10 @@ source("Script_Functions.R")
       X_4ab30[9:10]<- c(0.1, 0.1)
       
       #times sequence for the output:
-      times_4ab3<-seq(3000, 5000, by=D_4ab)
+      times_4ab3<-seq(3000, 5000, by = D_4ab)
       
       #use of the ode function from the deSolve library
-      results_4ab3<-round(ode(X_4ab30, times_4ab3, dXt, parameters_4ab), digits=4)
+      results_4ab3<-round(ode(X_4ab30, times_4ab3, dXt, parameters_4ab), digits = 4)
     }
       
     #Fourth period (Species 1-2-3-4-5-6-7-8-9-10-11-12)
@@ -441,10 +441,10 @@ source("Script_Functions.R")
       X_4ab40[11:12]<- c(0.1, 0.1)
       
       #times sequence for the output:
-      times_4ab4<-seq(5000, 10000, by=D_4ab)
+      times_4ab4<-seq(5000, 10000, by = D_4ab)
       
       #use of the ode function from the deSolve library
-      results_4ab4<-round(ode(X_4ab40, times_4ab4, dXt, parameters_4ab), digits=4)
+      results_4ab4<-round(ode(X_4ab40, times_4ab4, dXt, parameters_4ab), digits = 4)
     }    
       
   }

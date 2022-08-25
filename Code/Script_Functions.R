@@ -3,7 +3,7 @@
   
   makeparameters<-function(r, D, m, S, K, C){#function that create the parameterseter array used in dXt
     
-    parameters<-array(0, dim=c(dim(K)[1], dim(K)[2], 4))#Setting the size of the array.
+    parameters<-array(0, dim = c(dim(K)[1], dim(K)[2], 4))#Setting the size of the array.
     
     parameters[, , 1]<-K #Matrix of half saturation constants
     parameters[, , 2]<-C #Matrix of the content of each resources in each species
@@ -30,7 +30,7 @@
     S<-parameters[, 1, 4]#supply concentration of resources
     D<-parameters[1, 2, 4]#the system's turnover rate
     
-    l=length(X)
+    l = length(X)
     
     N<-X[1:dim(K)[2]]#The population abundance of species 
     R<-X[(dim(K)[2]+1):l]#The availability of resources 
