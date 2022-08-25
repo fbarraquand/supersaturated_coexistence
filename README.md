@@ -47,7 +47,7 @@ All of the code has been run with R 4.2.0.
 
 All scripts should be launched from the `Code/` directory.
 
-The calculation of data use thes ode() function from the ''DeSolve'' package. [[which version?]] 
+The calculation of data use thes ode() function from the ''DeSolve'' package in its 1.32 verion.
 
 You can install it by typing (in the R console): 
 
@@ -55,13 +55,23 @@ You can install it by typing (in the R console):
 install.packages("deSolve")
 ```
 
-The Figures are plotted using the plotly package for its ability to easily integrate 3D plots into subplots, and the ggplot2 package as it is required by plotly. 
+The Figures are plotted using the plotly package for its ability to easily integrate 3D plots into subplots in its 4.10-0 version, and the ggplot2 package for the very points-heavy Figures in its 3.3.6 version, as well as the patchwork package to create ggplot2 subplots in its 1.1.1 version.
 
 
 You can install it by typing (in the R console):
 ```
 install.packages("plotly")
 install.packages("ggplot2")
+install.packages("patchwork")
+```
+
+For the experiments, the random parameters were picked following a truncated normal law, provided by the truncnorm package in its 1.0-8 version.
+
+You can install it by typing (in the R console): 
+(Notice that it requires the devtools library to install from github)
+```
+library("devtools")
+install_github("olafmersmann/truncnorm")
 ```
 
 Finally, saving the plotly plots into .pdf of .png files requires the save.image() function. To quote the documentation: 
