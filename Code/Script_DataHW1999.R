@@ -333,7 +333,7 @@ source("Script_Functions.R")
   
   #matrix the will recieve the results during each loop :
   results_3ab <- c() 
-  results_3abminmax <- c()
+  results_3cd <- c()
   
   #loop for different values of K41
   for(K_41_j_3ab in seq(0.1, 0.5, 0.001)){#possibility to reduce the step in order to accelerate the calculus
@@ -343,22 +343,27 @@ source("Script_Functions.R")
     results_3abj<-round(ode(X_3ab0, times_3ab, dXt, parameters_3ab), digits=4)
     
     #saving the values between t=2,000 and t=4,000 :
-    results_3ab<-rbind(results_3ab, c(K_41_j_3ab, results_3abj[(2000/D_3ab):(4000/D_3ab), 2]))
+    results_3abj_u <- unique(results_3abj[(2000/D_3ab):(4000/D_3ab), 2])
+    
+    results_3ab <- rbind(results_3ab,cbind(rep(K_41_j_3ab,length(results_3abj_u)),results_3abj_u))
+    
+    
     
     #And the extremums : 
-    Maxj <- max(results_3abj[2000:4000, 2])
-    Minj <- min(results_3abj[2000:4000, 2])
+    Maxj <- max(results_3abj[(2000/D_3ab):(4000/D_3ab), 2])
+    Minj <- min(results_3abj[(2000/D_3ab):(4000/D_3ab), 2])
     
-    results_3abminmax<-rbind(results_3abminmax, c(K_41_j_3ab, Maxj, Minj))
+    results_3cd <- rbind(results_3cd, c(K_41_j_3ab, Maxj, Minj))
   }
   
   #transformating the data to plot it
   {
     dataresults_3ab <- as.data.frame(results_3ab)
-    dataresults_3abminmax <- as.data.frame(results_3abminmax)
+    dataresults_3cd <- as.data.frame(results_3cd)
     
     write.table(dataresults_3ab, "./DataHW1999/dataresults_3ab.txt", row.names = F, col.names = F)
-    write.table(dataresults_3abminmax, "./DataHW1999/dataresults_3cd.txt", row.names = F, col.names = F)
+    
+    write.table(dataresults_3cd, "./DataHW1999/dataresults_3cd.txt", row.names = F, col.names = F)
     }
   
   }

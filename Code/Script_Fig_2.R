@@ -5,9 +5,9 @@ library(plotly)
 
 ##########################Fig 2 :
 {
-  dataresults_2a <- read.table("./Data/dataresults_2a.txt")
-  dataresults_2b <- read.table("./Data/dataresults_2b.txt")
-  dataresults_2c <- read.table("./Data/dataresults_2c.txt")
+  dataresults_2a <- read.table("./DataHW1999/dataresults_2a.txt")
+  dataresults_2b <- read.table("./DataHW1999/dataresults_2b.txt")
+  dataresults_2c <- read.table("./DataHW1999/dataresults_2c.txt")
   
   Fig_2a <- {plot_ly(dataresults_2a, x= ~time, y= ~N1, name = "Species 1", type = "scatter", mode = "lines") %>%
       add_trace(y= ~N2, name = "Species 2", mode="lines") %>%
