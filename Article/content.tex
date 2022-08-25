@@ -44,10 +44,10 @@ The growth rates are defined using:
 &K_{	ji} \text{ the half-saturation constant for resource $j$ of species $i$.}
 \end{align*}
 In order to reproduce the results of Huisman \& Weissing (1999), the differential 
-equations were integrated using the \texttt{deSolve} package in \texttt{R} {\color{blue}[[CP: which versions of deSolve and R?]]}, using the same parameter 
-sets as in the original article.\\
+equations were integrated using the \texttt{deSolve} package in its 1.32 version in \texttt{R} 4.2.0, using the same parameter sets as in the original article.\\
 
 Multiple simulations are performed and illustrated in the original article as well as here: \\
+In Figure \ref{figures:Fig1} a) and b), 3 species are competing for 3 resources, in c), 6 species are competing for 3 resources and in d), 9 species are competing for 3 resources. In Figure \ref{figures:Fig2}, 5 species are competing on 3 resources. In Figure \ref{figures:Fig3} 5 species are competing on 5 resources. In Figure \ref{figures:Fig4}, 12 species are competing for 5 resources. 
 In Figure \ref{figures:Fig2} and Figure \ref{figures:Fig1} a), b) and for the 
 bifurcation diagram of Figure \ref{figures:Fig3}, all of the species are 
 introduced at the same time in the simulation. In Figure \ref{figures:Fig4} and 
@@ -65,9 +65,16 @@ We chose to focus on evaluating the robustness of the last simulation of Huisman
 As changing only a single one of the $n$ intrinsic growth rates $r_i$ (as done earlier in the follow-up articles\supercite{2008:Schippers,2008:Huisman}) appeared a little artificial to us, 
 we chose to randomly perturb all of the $n~~r_i$ at once, as would typically do an ecosystem-wide perturbation that is not directly related to the modelled resources. 
 In a first numerical experiment, we considered the exact same invasion sequence as Huisman \& Weissing\supercite{1999:Huisman}. 
-In a second step, we started with the full set of species at once. 
-
+In a second step, we started with the full set of species at once.\\
+\\
+In order to conduct the numerical experiments proposed earlier, the method used to plot the 
+fourth Figure has been reused. The two experiments were conducted 400 times each, 
+with as many different parameter sets: the $r_i$ were drawn according to a 
+truncated normal distribution. The mean was $\mu=1$ and the variance was 
+$\sigma=0.1$, corresponding to CV=10\%. The distribution was truncated using $\mu\pm3\sigma$, in other 
+words between $0.7$ and $1.3$.\\~\\ 
 \section{Results}
+\subsection{Reproduction}
 We were able to replicate the four figures of Huisman \& Weissing\supercite{1999:Huisman}, presented below. 
 \begin{figure}[H]
 \begin{center} 
@@ -114,13 +121,7 @@ resources. a), The abundances of species 1-6; b), the abundances of species 7-12
   \label{figures:Fig4}
 \end{center}
   \end{figure}
-In order to conduct the numerical experiments proposed earlier, the method used to plot the 
-fourth Figure has been reused. The two experiments were conducted 400 times each, 
-with as many different parameter sets: the $r_i$ were drawn according to a 
-truncated normal distribution. The mean was $\mu=1$ and the variance was 
-$\sigma=0.1$, corresponding to CV=10\%. The distribution was truncated using $\mu\pm3\sigma$, in other 
-words between $0.7$ and $1.3$.\\~\\
-
+\subsection{Experiments}
 For the first numerical experiment, introducing species one after the other as in the 
 original simulation, the following statistics, displaying the frequencies 
 (expressed in \%) of the number of species present at the end of the simulation 
@@ -133,16 +134,14 @@ This simulation shows that the persistence of five species and more is
 very unlikely, and supersaturated coexistence may be present for a limited domain of parameter space.\\
 %%FB: stopped correction here 26/07/2022
 \\
-The pattern of extinction and its interaction with the sequential introduction of 
-species {\color{blue}[[CP: What do you mean?]]} is shown in the Figure \ref{figures:Figexp1}. Note that 
+The pattern of extinction and its interaction for the first experiment is shown in the Figure \ref{figures:Figexp1}. Note that 
 the subfigure 1) represents the original results with $r_i=1 ~\forall i$. 
 \begin{figure}[H]
 \begin{center} 
  \includegraphics[width=1\textwidth]{../Code/Figures/Figure_exp1.pdf}
   \caption{Visualisation of 8 different simulations of competitive chaos and 
 coexistence of 12 species on five ressources, following the Figure 4 method 
-except that each species has a different maximum growth rate $r_i$. Except for the first one, the 
-simulations illustrated were randomly picked among the 500 of the experience. 
+except that each species has a different maximum growth rate $r_i$. Except for the first one, the simulations illustrated were randomly picked among the 500 of the experience. Each couple of subplots is labeled with the number of the corresponding simulation.
 a), The abundances of species 1-6 ; b), the abundances of species 7-12.}
   \label{figures:Figexp1}
 \end{center}
@@ -163,8 +162,7 @@ has been considered present if $N_i > 0.001$ at the end of the simulation) \\
 This simulation shows that the subsitance of five species and more is very 
 unlikely and the supersaturated coexistance very rare in the parameter space.\\
 \\
-The pattern of extinction an its interaction with the introduction of all of the 
-species at the same time is descirbed in following Figure \ref{figures:Figexp2}, 
+The pattern of extinction an its interaction for the second experiment is descirbed in following Figure \ref{figures:Figexp2}, 
 note that the subfigure 1) represent the original results with $r_i=1 ~\forall 
 i$ : 
 \begin{figure}[H]
@@ -174,7 +172,7 @@ i$ :
 coexistance of 12 species on five ressources, following the Figure 4 method 
 exept that $r_i$ was randomly for each of the species and all species were 
 introduced at the same time. Except the first one, the simulations illustrated 
-were randomly picked among the 500 of the experience. a),The abundances of 
+were randomly picked among the 500 of the experience. Each couple of subplots is labeled with the number of the corresponding simulation. a),The abundances of 
 species 1-6; b). the abundances of species 7-12.}
   \label{figures:Figexp2}
 \end{center}
@@ -198,8 +196,7 @@ al.\supercite{2008:Schippers}, who showed that supersaturated coexistence using 
 oscillations are really unlikely in parameter space and requires a really 
 precise -in addition to being uncommon- parameterization. Our results are 
 therefore consistent with their conclusion that the claim of solving the paradox 
-of plankton might be premature.
+of plankton might be premature. Additional studies, such as Huisman et al. \supercite{2008:Huisman} paper might however show that other ways to maintain more species exists. 
 
-{\color{blue} [[CP: Our final sentence, while not wrong, is strong: we may want to at least acknowledge the responses of Huisman et al. 2008, at least by saying that they have showed complementary ways of maintaining more species, e.g., with trade-offs. ]]}
 
 
