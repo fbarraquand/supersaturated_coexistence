@@ -3,7 +3,7 @@ In the present article, we replicate the results of Huisman \& Weissing 1999 \te
 
 According to many mathematical models, the number of phytoplankton species in a single homogeneous medium cannot exceed the number of separate resources available \cite{1960:Hardin,1973:Phillips,1980:Armstrong}. However it is very common to observe more species than easily identifiable resources in field conditions. This led Hutchinson to formulate the paradox of the plankton \cite{1961:Hutchinson}. Using numerical simulations of their ODE model, Huisman \& Weissing \cite{1999:Huisman} showed that ``supersaturated coexistence'' is possible, where more consumer species than resource items coexist through oscillations or chaos. We attempt here to check this finding. \\
 
-In addition to the replication of the numerical results of Huisman and Weissing \cite{1999:Huisman}, we also present two novel numerical experiments inspired by follow-up articles, \textit{Does ``supersaturated coexistence'' resolve the ``paradox of the plankton'' ?} by Schippers et al. 2008 \cite{2008:Schippers}, and \textit{Towards a solution of the plankton paradox: the importance of physiology and life history} by Huisman et al. 2008 \cite{2008:Huisman}. These articles suggested that supersaturated coexistence might be difficult to obtain outside of the restricted parameter scenarios considered in the original article. Schippers et al. \cite{2008:Schippers} assessed the sensitivity of diversity to parameter perturbations. They did so changing parameters for one species at a time, concluding that supersaturated coexistence was unlikely, while Huisman et al. \cite{2008:Huisman} showed how some trade-offs can make parameter combinations favourable to coexistence emerge (although most of the scenarios they consider confirm the results of Schippers et al. \cite{2008:Schippers}). Here, we further consider mild perturbations of intrinsic population growth rates of all species at once (though not necessarily in the same direction), an hypothesis which we deem coherent with whole-ecosystem perturbations. If supersaturated coexistence is a likely coexistence mechanism, small changes to population growth rates should not massively affect the number of coexisting species. 
+In addition to the replication of the numerical results of Huisman and Weissing \cite{1999:Huisman}, we also present two novel numerical experiments inspired by follow-up articles, \textit{Does ``supersaturated coexistence'' resolve the ``paradox of the plankton'' ?} by Schippers et al. 2008 \cite{2008:Schippers}, and \textit{Towards a solution of the plankton paradox: the importance of physiology and life history} by Huisman et al. 2008 \cite{2008:Huisman}. These articles suggested that supersaturated coexistence might be difficult to obtain outside of the restricted parameter scenarios considered in the original article. Schippers et al. \cite{2008:Schippers} assessed the sensitivity of diversity to parameter perturbations. They did so changing parameters for one species at a time, concluding that supersaturated coexistence was unlikely, while Huisman et al. \cite{2008:Huisman} showed how some trade-offs can make parameter combinations favourable to coexistence emerge (although most of the scenarios they consider confirm the results of Schippers et al. \cite{2008:Schippers}). Here, we further consider mild perturbations of intrinsic growth rates of all species at once (though not necessarily in the same direction), an hypothesis which we deem coherent with whole-ecosystem perturbations. If supersaturated coexistence is a likely coexistence mechanism, small changes to growth rates should not massively affect the number of coexisting species. 
 
 \section{Model}
 
@@ -89,7 +89,7 @@ The bifurcation diagram caption did not seem to correspond to the actual Figure,
 \end{center}
   \end{figure}
 
-\subsection{Numerical experiments}
+\subsection{Experiments}
 
 For the first numerical experiment, introducing species one after the other as in the original simulation, the following statistics, displaying the frequencies (expressed in \%) of the number of species present at the end of the simulation could be obtained: \\
 \input{../Code/Figures/results_exp1_1}
@@ -97,31 +97,31 @@ For the first numerical experiment, introducing species one after the other as i
 \\
 A species has been considered present if $N_i > 0.001$ at the end of the simulation. This simulation shows that the persistence of five species or more is very unlikely, and that supersaturated coexistence may be present in a limited domain of parameter space.\\
 \\
-Community dynamics for the first experiment, with possible extinctions, are shown by Figure \ref{figures:Figexp1}. Note that the subfigure 1) represents the original results with $r_i=1 ~\forall i$, while $r_i$ randomly varies as described in the methods for all other panels. 
+Community dynamics for the first experiment, with possible extinctions, is shown by Figure \ref{figures:Figexp1}. Note that the subfigure 1) represents the original results with $r_i=1 ~\forall i$, while $r_i$ randomly varies as described in the methods for all other panels. 
 
 \begin{figure}[H]
 \begin{center} 
  \includegraphics[width=1\textwidth]{../Code/Figures/Figure_exp1.pdf}
-  \caption{Visualisation of eight different simulations of competitive chaos and coexistence of twelve species on five resources. It is identical to Figure 4 except that intrinsic growth rates $r_i$ are randomly varied. Except for the first panel, the simulations chosen were randomly picked among the 500 constituting the numerical experiment. Each couple of subplots is labelled with the number of the corresponding simulation. a) abundances of species 1-6, b) abundances of species 7-12. Dashed vertical lines represent the introduction of new species.}
+  \caption{Visualisation of eight different simulations of competitive chaos and coexistence of twelve species on five ressources. Identical to Figure 4 except that intrinsic growth rate $r_i$ are randomly varied. Except for the first panel, the simulations chosen were randomly picked among the 500 constituting the numerical experiment. Each couple of subplots is labelled with the number of the corresponding simulation. a) abundances of species 1-6, b) abundances of species 7-12. Dashed vertical lines represent the introduction of new species.}
   \label{figures:Figexp1}
 \end{center}
 \end{figure}
 
-We observe contrasted stationary endpoints, possibly with some oscillations or chaos during the invasion process. As shown in Figure \ref{figures:Figexp1}, however, most species do not persist. It is also noticable that the five species on five resources (before the first invasion at $t=1,000$) is sometimes already unstable.\\
+We observe contrasted stationary endpoints, possibly with some oscillations or chaos during the invasion process. As shown in Figure \ref{figures:Figexp1}, however, most species do not persist. It is also noticable that the 5 species on 5 ressources (before the first invasion at $t=1,000$) is sometimes already unstable.\\
 \\
 For the second experiment, introducing all species at once, the  following statistics could be obtained, displaying the frequencies (expressed in 
-\%) of the number of species present at the end of the simulation:  \\
+\%) of the number of species present at the end of the simulation :  \\
 \input{../Code/Figures/results_exp2_1}
 \input{../Code/Figures/results_exp2_2}
 \\
-A species has been considered present if $N_i > 0.001$ at the end of the simulation. This simulation shows that the persistence of five species or more is very unlikely and that supersaturated coexistence is consequently very rare in parameter space.\\
+(A species has been considered present if $N_i > 0.001$ at the end of the simulation). This simulation shows that the persistence of five species or more is very unlikely and that supersaturated coexistence is consequently very rare in parameter space.\\
 \\
-Community dynamics for the second experiment, with possible extinctions, are described in the following Figure \ref{figures:Figexp2}, note that the subfigure 1) represent the original results with $r_i=1 ~\forall i$, while $r_i$ randomly varies as described in the methods for all other panels.
+The pattern of extinction an its interaction for the second experiment is described in following Figure \ref{figures:Figexp2}, note that the subfigure 1) represent the original results with $r_i=1 ~\forall i$, while $r_i$ randomly varies as described in the methods for all other panels.
 
 \begin{figure}[H]
 \begin{center} 
  \includegraphics[width=1\textwidth]{../Code/Figures/Figure_exp2.pdf}
-  \caption{Visualisation of eight different simulations of competitive chaos and coexistence of twelve species on five resources, following the Figure 4 method except that $r_i$ was randomly drawn for each of the species and all species were introduced at once. Except the first panel (original parameters), the simulations illustrated were randomly picked among the 500 of the numerical experiment. Each couple of subplots is labeled with the number of the corresponding simulation. a) abundances of species 1-6, b) abundances of species 7-12.}
+  \caption{Visualisation of eight different simulations of competitive chaos and coexistence of twelve species on five ressources, following the Figure 4 method except that $r_i$ was randomly drawn for each of the species and all species were introduced at once. Except the first panel (original parameters), the simulations illustrated were randomly picked among the 500 of the numerical experiment. Each couple of subplots is labeled with the number of the corresponding simulation. a) abundances of species 1-6, b) abundances of species 7-12.}
   \label{figures:Figexp2}
 \end{center}
 \end{figure}
@@ -130,11 +130,12 @@ As for the first experiment we mostly observed either fixed (non-oscillatory) st
 
 \section{Discussion}
 
-We were able to successfully replicate the figures of the original paper. There are minor differences in species dynamics in Figure~\ref{figures:Fig4}, which are arguably due to differences in numerical integration.\\
+We were able to successfully replicate the Figures of the original paper. There are minor differences in species dynamics in Figure~\ref{figures:Fig4}, which are arguably due to differences in numerical integration.\\~\\
 
-The additional numerical experiments showed that slightly changing the values of the $r_i$ parameters almost always prevents the coexistence of twelve species on five resources and mostly prevents supersaturated coexistence in general. This is true when introducing species sequentially as in the original paper, as well as all at once.\\
+The additional numerical experiments showed that slightly changing the values of the $r_i$ parameters almost always prevents the coexistence of 12 species on five ressources and mostly prevents
+supersaturated coexistence in general. This is true when introducing species sequentially as in the original paper, as well as all at once. \\~\\
 
-Our results corroborate those of Schippers et al. \cite{2008:Schippers}, who showed that supersaturated coexistence through chaos or oscillations requires particular sets of parameters values, which are not robust to small perturbations. Our results, using a slightly different kind of perturbation, are therefore consistent with their conclusion that supersaturated coexistence is unlikely to solve the paradox of the plankton. Additionally, there are other reasons due to mixing and spatial structure, not considered here, which could render supersaturated coexistence unlikely \cite{2008:Roelke}. 
+Our results corroborate those of Schippers et al. \cite{2008:Schippers}, who showed that supersaturated coexistence through chaos or oscillations requires peculiar sets of parameters values, which are not robust to small perturbations. Our results, using a slightly different kind of perturbation, are therefore consistent with their conclusion that supersaturated coexistence is unlikely to solve the paradox of the plankton. Additionally, there are other reasons due to mixing and spatial structure, not considered here, which could render supersaturated coexistence unlikely \cite{2008:Roelke}. 
 
 
 
