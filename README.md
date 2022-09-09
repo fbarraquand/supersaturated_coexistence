@@ -1,4 +1,4 @@
-# [Re] Supersaturated coexistance
+# [Re] Supersaturated coexistence
 ## 2022 Replication of Huisman & Weissing 1999
 
 This project is the replication of ''Biodiversity of plankton by species oscillations and chaos'' by Jeff Huisman and Franz J. Weissing.
