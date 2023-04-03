@@ -4,12 +4,12 @@
   library(plotly)
 }
 
-
 ##########################Fig_exp_2
+
 stats_exp2 <- read.table("./DataExp/Exp2/stats_exp2.txt")
 
 set.seed(81490)
-FigList <- c(1,round(runif(7, 2, dim(stats_exp2)[1])))
+FigList <- c(1,sample((2:dim(stats_exp2)[1]),7))#randomly picking among all the simulations
 
 for(j in (1:8)){
   dataresultsFig_exp2 <- read.table(paste("./DataExp/Exp2/dataresults_exp2_", as.character(stats_exp2[FigList[j], 1]), ".txt", sep = ""))

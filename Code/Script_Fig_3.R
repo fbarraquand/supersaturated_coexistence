@@ -5,7 +5,7 @@ library(plotly)
 library(patchwork)
 
 
-##########################Fig 3 :
+##########################Fig 3 : (Note that the execution time of this program is particularly long compared to other)
 { 
   dataresults_3ab <- read.table("./DataHW1999/dataresults_3ab.txt")
   dataresults_3ab <- read.table("./DataHW1999/dataresults_3ab.txt")

@@ -1,15 +1,5 @@
-"Probability"
-"0 species" 0
-"1 species" 36.4
-"2 species" 41.4
-"3 species" 5
-"4 species" 10
-"5 species" 6
-"6 species" 1.2
-"7 species" 0
-"8 species" 0
-"9 species" 0
-"10 species" 0
-"11 species" 0
-"12 species" 0
-"Supersaturated" 1.2
+"0 species" "1 species" "2 species" "3 species" "4 species" "5 species" "6 species" "7 species" "8 species" "9 species" "10 species" "11 species" "12 species" "Supersaturated"
+"After 1000 days" 0 24.4 48.6 6.8 5 7.4 6.2 1.2 0.4 0.2 0 0 0 8
+"After 3000 days" 0 30 44.4 7 6.4 7.8 3.6 0.6 0.4 0 0 0 0 4.6
+"After 5000 days" 0 31.4 43.2 7.2 7.4 7 3.2 0.6 0.2 0 0 0 0 4
+"After 10000 days" 0 32.4 42.6 7.6 7.6 6 3.2 0.6 0.2 0 0 0 0 4

@@ -2,11 +2,12 @@
 {
   library(deSolve) 
   library(truncnorm)
+  library(xtable)
 
   source("Script_Functions.R")
 }
 
-##########################experiment 1 : 
+##########################Experiment 1 : 
 {
   
   #size of the test sample : 
@@ -27,9 +28,13 @@
     parameters_exp1<-makeparameters(rep(0, 12), D_exp1, m_exp1, S_exp1, K_exp1, C_exp1)
     
     #randomly choosing the parameter r, but assuring that the firsts r will be the "normal" configuration (only ones)
-    set.seed(1473)
+    set.seed(1151)
     matr_exp1 <- matrix(c(rep(1, 12), rtruncnorm(n_exp1*12, 0.7, 1.3, 1, 0.1)), n_exp1+1, 12, T)
     
+    #saving the values of r  
+    r_exp1 <- cbind((1:(n_exp1+1)), matr_exp1)
+    names(r_exp1) <- c("N°", paste("r", 1:12, sep = ""))
+    write.table(r_exp1, "./DataExp/Exp1/r_exp1.txt")
     
   }
   
@@ -111,41 +116,46 @@
                          results_3_exp1[, 1:13][-dim(results_3_exp1)[1], ], 
                          results_4_exp1[, 1:13])
       
-      #sometimes the simulation can generate error such as negative or NA values.
-      #Before saving the data we check if it's the case or not.
-      if((!is.na(results_exp1[dim(results_exp1)[1], 2]))&(setequal(((results_exp1[dim(results_exp1)[1], 2:13])> = 0),rep(T,12)))){
+      #Sometimes the simulation can generate error such as negative or NA values.
+      #Before saving the data we check if it's the case or not and not processing the data if needed.
+      if((!is.na(results_exp1[dim(results_exp1)[1], 2]))&(setequal(((results_exp1[dim(results_exp1)[1], 2:13]) >= 0),rep(T,12)))){
 
         nametxtj <- paste('./DataExp/Exp1/dataresults_exp1_', as.character(j), '.txt',  sep = "")
         
         write.table(as.data.frame(results_exp1), nametxtj)
     
-        coex_species_1 <- (results_exp1[dim(results_exp1)[1], 2:13]>0.001)
-    
-        stats_exp1 <- rbind(stats_exp1, c(j, matr_exp1[j, ], sum(coex_species_1)))
+        coex_species_1 <- array(0,c(4,12))
+        for (p in (1:4)){
+          coex_species_1[p,] <- (get(paste("results_",p,"_exp1",sep=""))[dim(get(paste("results_",p,"_exp1",sep="")))[1]-1, 2:13]>0.001)
+        }
+        
+        stats_exp1 <- rbind(stats_exp1, c(j,rowSums(coex_species_1)))
       }
     }
     
   }
   
   #saving the statistics 
-  names(stats_exp1) <- c("N°", paste("r", 1:12, sep = ""), "Number of coexisting species")
+  names(stats_exp1) <- c("N°","Number of coexisting species at 1000 days","Number of coexisting species at 3000 days","Number of coexisting species at 5000 days","Number of coexisting species at 10000 days")
   write.table(stats_exp1, "./DataExp/Exp1/stats_exp1.txt")
 
   #displaying it 
-  results_exp1 <- data.frame(Probability = c(colSums(outer(stats_exp1[-1, 14], 0:12, " = = ")), sum(stats_exp1[-1, 14]>5))*(100/dim(stats_exp1[-1, ])[1]))
-  row.names(results_exp1) <- c(paste(0:12, "species", sep = " "), "Supersaturated")
+  results_exp1 <- data.frame()
+  for (p in (2:5)){
+    results_exp1 <- rbind(results_exp1, c(colSums(outer(stats_exp1[, p], 0:12, "==")), sum(stats_exp1[, p]>5))*(100/dim(stats_exp1[-1, ])[1]))
+  }
+  
+  colnames(results_exp1) <- c(paste(0:12, "species", sep = " "), "Supersaturated")
+  row.names(results_exp1) <- c(paste("After", c(1000, 3000, 5000, 10000), "days", sep = " "))
+  
+  print(results_exp1)
   write.table(results_exp1, "./DataExp/Exp1/results_exp1.txt")
   
-  #Saving the results as LaTex tables : 
-  results_exp1_1 <- as.data.frame(t(results_exp1))[, 1:7]
-  results_exp1_2 <- as.data.frame(t(results_exp1))[, 8:14]
-  
-  print(xtable(results_exp1_1, type = "latex"), file = "./Figures/results_exp1_1.tex")
-  print(xtable(results_exp1_2, type = "latex"), file = "./Figures/results_exp1_2.tex")
-  
+  #Saving the results as LaTex table : 
+  print(xtable(t(results_exp1), type = "latex"), file = "./Figures/results_exp1.tex")
 }
 
-##########################experiment 2 : 
+##########################Experiment 2 : 
 {
   #size of the test sample : 
   n_exp2 <- 500
@@ -163,8 +173,13 @@
   C_exp2<- matrix(scan("./Matrix_C/C_4.txt"), 5, 12, T)
   
   #randomly choosing the parameter r, but assuring that the firsts r will be the "normal" configuration (only ones) 
-  set.seed(1151)
+  set.seed(1473)
   matr_exp2 <- matrix(c(rep(1, 12), rtruncnorm(n_exp2*12, 0.7, 1.3, 1, 0.1)), n_exp2+1, 12, T)
+  
+  #saving the values of r  
+  r_exp2 <- cbind((1:(n_exp2+1)), matr_exp2)
+  names(r_exp2) <- c("N°", paste("r", 1:12, sep = ""))
+  write.table(r_exp2, "./DataExp/Exp2/r_exp2.txt")
   }
   
   #initial state : 
@@ -194,30 +209,36 @@
     nametxtj <- paste('./DataExp/Exp2/dataresults_exp2_', as.character(j), '.txt',  sep = "")
     write.table(as.data.frame(results_exp2j), nametxtj)
     
-    coex_species_2 <- (results_exp2j[, 2:13][dim(results_exp2j)[1], ]>0.001)
+    coex_species_2 <- array(0,c(4,12))
     
-    stats_exp2 <- rbind(stats_exp2, c(j, matr_exp2[j, ], sum(coex_species_2)))
+    times_exp2_save <- round(c(1000/D_exp2, 3000/D_exp2, 5000/D_exp2, 10000/D_exp2)-1)
+    
+    for (p in (1:4)){
+      coex_species_2[p,] <- (results_exp2j[times_exp2_save[p], 2:13]>0.001)
+    }
+    
+    stats_exp2 <- rbind(stats_exp2, c(j,rowSums(coex_species_2)))
       
   }
   
-  names(stats_exp2) <- c("N°", paste("r", 1:12, sep = ""), "Number of coexisting species")
+  #saving the statistics 
+  names(stats_exp2) <- c("N°","Number of coexisting species at 1000 days","Number of coexisting species at 3000 days","Number of coexisting species at 5000 days","Number of coexisting species at 10000 days")
   write.table(stats_exp2, "./DataExp/Exp2/stats_exp2.txt")
   
-  results_exp2 <- data.frame(Probability = c(colSums(outer(stats_exp2[-1, 14], 0:12, " = = ")), sum(stats_exp2[-1, 14]>5))*(100/dim(stats_exp2[-1, ])[1]))
-  row.names(results_exp2) <- c(paste(0:12, "species", sep = " "), "Supersaturated")
+  #displaying it 
+  results_exp2 <- data.frame()
+  for (p in (2:5)){
+    results_exp2 <- rbind(results_exp2, c(colSums(outer(stats_exp2[, p], 0:12, "==")), sum(stats_exp2[, p]>5))*(100/dim(stats_exp2[-1, ])[1]))
+  }
+  
+  colnames(results_exp2) <- c(paste(0:12, "species", sep = " "), "Supersaturated")
+  row.names(results_exp2) <- c(paste("After", c(1000, 3000, 5000, 10000), "days", sep = " "))
   
   write.table(results_exp2, "./DataExp/Exp2/results_exp2.txt")
   
+  #Saving the results as LaTex table : 
+  print(xtable(t(results_exp2), type = "latex"), file = "./Figures/results_exp2.tex")
   
-  #Saving the results as LaTex tables : 
-  results_exp2_1 <- as.data.frame(t(results_exp2))[, 1:7]
-  results_exp2_2 <- as.data.frame(t(results_exp2))[, 8:14]
   
-  print(xtable(results_exp2_1, type = "latex"), file = "./Figures/results_exp2_1.tex")
-  print(xtable(results_exp2_2, type = "latex"), file = "./Figures/results_exp2_2.tex")
   
 }
-
-
-
-

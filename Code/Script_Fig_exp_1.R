@@ -9,7 +9,7 @@
 stats_exp1 <- read.table("./DataExp/Exp1/stats_exp1.txt")  
 
 set.seed(211232)
-FigList <- c(1,round(runif(7, 2, dim(stats_exp1)[1])))
+FigList <- c(1,sample((2:dim(stats_exp1)[1]),7))#randomly picking among all the simulations
 
 for(j in (1:8)){
   dataresults_Fig_exp1 <- read.table(paste("./DataExp/Exp1/dataresults_exp1_",as.character(stats_exp1[FigList[j], 1]), ".txt", sep = ""))
