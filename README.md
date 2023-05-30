@@ -63,7 +63,7 @@ install.packages("xtable")
 ```
 
 Finally, saving the plotly plots into .pdf of .png files requires the `save_image()` function, which is not available directly in plotly. 
-You can install it by typing in the R console (Note that this installation requires an installation of python/miniconda): 
+You can install it by typing in the R console (Note that this installation requires an installation of python/miniconda, used here in its 23.3.1 version for Conda and in its 3.10.10 version for Python, as well as the `reticulate` package, the version we used was the 1.28): 
 
 ```
 install.packages('reticulate')
@@ -73,17 +73,17 @@ reticulate::conda_install('r-reticulate', 'plotly', channel = 'plotly')
 reticulate::use_miniconda('r-reticulate')
 ```
 
-Sometimes, while trying to save the images througt this function, the following error can occur  : 
+Sometimes, while trying to save the images with this function, the following error can occur: 
 
 ```
 NameError: name 'sys' is not defined
 ```
 
-Its a common bug that can normaly be fixed by typing in the R console :
+It is a common bug that should be fixed with the following commands:
 
 ```
 library(reticulate)
 reticulate::py_run_string("import sys")
 ```
 
-Note that some computations require more time than others, such as those required for the third Figure (bifurcation plots) and the two additional numerical experiments, that run the differential equations for long periods of time and numerous parameter sets. Some calculations during experiments generate errors that are handled by the code and do not impact the calculation, even if they are displayed.
+Note that some computations require more time than others, such as those required for the third Figure (bifurcation plots) and the two additional numerical experiments, that run the differential equations for long periods of time and numerous parameter sets. Some calculations during experiments generate errors and warnings that are handled by the code and do not impact the calculation, even if they are displayed.

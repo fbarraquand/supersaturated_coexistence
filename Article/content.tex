@@ -1,9 +1,9 @@
 \section{Introduction}
-In the present article, we replicate the results of Huisman \& Weissing 1999 \textit{Biodiversity of plankton by species oscillations and chaos} \cite{1999:Huisman}, an attempt to resolve the paradox of the plankton \cite{1961:Hutchinson} with a nonlinear ordinary differential equations model based on resource competition theory.\\
+In the present article, we replicate the results of Huisman \& Weissing 1999 \textit{Biodiversity of plankton by species oscillations and chaos} \cite{1999:Huisman}, an attempt to resolve the paradox of the plankton \cite{1961:Hutchinson} with a nonlinear ordinary differential equation model based on resource competition theory.\\
 
 According to many mathematical models, the number of phytoplankton species in a single homogeneous medium cannot exceed the number of separate resources available \cite{1960:Hardin,1973:Phillips,1980:Armstrong}. However it is very common to observe more species than easily identifiable resources in field conditions. This led Hutchinson to formulate the paradox of the plankton \cite{1961:Hutchinson}. Using numerical simulations of their ODE model, Huisman \& Weissing \cite{1999:Huisman} showed that ``supersaturated coexistence'' is possible, where more consumer species than resource items coexist through oscillations or chaos. We attempt here to check this finding. \\
 
-In addition to the replication of the numerical results of Huisman and Weissing \cite{1999:Huisman}, we also present two novel numerical experiments inspired by follow-up articles, \textit{Does ``supersaturated coexistence'' resolve the ``paradox of the plankton'' ?} by Schippers et al. 2008 \cite{2008:Schippers}, and \textit{Towards a solution of the plankton paradox: the importance of physiology and life history} by Huisman et al. 2008 \cite{2008:Huisman}. These articles suggested that supersaturated coexistence might be difficult to obtain outside of the restricted parameter scenarios considered in the original article. Schippers et al. \cite{2008:Schippers} assessed the sensitivity of diversity to parameter perturbations. They did so changing parameters for one species at a time, concluding that supersaturated coexistence was unlikely, while Huisman et al. \cite{2008:Huisman} showed how some trade-offs can make parameter combinations favourable to coexistence emerge (although most of the scenarios they consider confirm the results of Schippers et al. \cite{2008:Schippers}). Here, we further consider mild perturbations of intrinsic population growth rates of all species at once (though not necessarily in the same direction), a hypothesis which we deem coherent with whole-ecosystem perturbations. If supersaturated coexistence is a likely coexistence mechanism, small changes to population growth rates should not massively affect the number of coexisting species. 
+In addition to the replication of the numerical results of Huisman and Weissing \cite{1999:Huisman}, we also present two novel numerical experiments inspired by follow-up articles, \textit{Does ``supersaturated coexistence'' resolve the ``paradox of the plankton'' ?} by Schippers et al. 2001 \cite{2001:Schippers}, and \textit{Towards a solution of the plankton paradox: the importance of physiology and life history} by Huisman et al. 2001 \cite{2001:Huisman}. These articles suggested that supersaturated coexistence might be difficult to obtain outside of the restricted parameter scenarios considered in the original article. Schippers et al. \cite{2008:Schippers} assessed the sensitivity of diversity to parameter perturbations. They did so changing parameters for one species at a time, concluding that supersaturated coexistence was unlikely, while Huisman et al. \cite{2008:Huisman} showed how some trade-offs can make parameter combinations favourable to coexistence emerge (although most of the scenarios they consider confirm the results of Schippers et al. \cite{2008:Schippers}). Here, we further consider mild perturbations of intrinsic population growth rates of all species at once (though not necessarily in the same direction), a hypothesis which we deem coherent with whole-ecosystem perturbations. If supersaturated coexistence is a likely coexistence mechanism, small changes to population growth rates should not massively affect the number of coexisting species. 
 
 \section{Model}
 
@@ -43,7 +43,7 @@ In Figure \ref{figures:Fig1} a) and b), 3 species are competing for 3 resources,
 
 As Schippers et al. \cite{2008:Schippers}, we were wondering how and why the parameter sets were initially chosen, and if the results would remain the same for slightly different parameters. Several simulations were made in Schippers et al. paper \cite{2008:Schippers} and Huisman et al.'s response \cite{2008:Huisman}, in order to evaluate how robust was supersaturated coexistence. In the same spirit, we carried out new numerical experiments with a slightly different perspective.\\
 
-We chose to focus on evaluating the robustness of the last simulation of Huisman \& Weissing \cite{1999:Huisman}, displayed on Figure \ref{figures:Fig4}. We focused on perturbating the growth rate parameter, $r_i$, denoted as $\mu_{\text{max}}$ in the follow-up articles \cite{2008:Schippers,2008:Huisman}. As changing only a single one of the $n$ intrinsic growth rates $r_i$ (as done earlier in the follow-up articles \cite{2008:Schippers,2008:Huisman}) appeared a little artificial to us, we chose to randomly perturb all of the $n~~r_i$ at once, as would typically do an ecosystem-wide perturbation that is not directly related to the modelled resources. 
+We chose to focus on evaluating the robustness of the last simulation of Huisman \& Weissing \cite{1999:Huisman}, displayed on Figure \ref{figures:Fig4}. We focused on perturbating the growth rate parameter, $r_i$, denoted as $\mu_{\text{max}}$ in the follow-up articles \cite{2008:Schippers,2008:Huisman}. As changing only a single one of the $n$ intrinsic growth rates $r_i$ (as done earlier in the follow-up articles \cite{2008:Schippers,2008:Huisman}) appeared a little artificial to us, we chose to randomly perturb all of the $n~~r_i$ at once, as would typically do an ecosystem-wide perturbation that is not directly related to the modelled resources. Furthermore, it is overall more realistic, as some articles \cite{2015:Edwards} suport the idea that growth rate may vary even in the absence of perturbations.
 In a first numerical experiment, we considered the exact same invasion sequence as Huisman \& Weissing \cite{1999:Huisman}. 
 In a second step, we started with the full set of species at once.\\
 \\
@@ -65,7 +65,7 @@ We were able to replicate the four figures of Huisman \& Weissing \cite{1999:Hui
 \begin{figure}[H]
 \begin{center} 
  \includegraphics[width=1\textwidth]{../Code/Figures/Figure_2.pdf}
-  \caption{Chaos on five resources. a) time course of the abundances of five species competing for five resources, b) corresponding chaotic attractor. The trajectory is plotted for three of the five species, from the period from $t= 1,000$ to $t=2,000$ days, c) time course of total community biomass.}
+  \caption{Chaos on five resources. a) Time course of the abundances of five species competing for five resources, b) The corresponding chaotic attractor. The trajectory is plotted for three of the five species, from the period from $t= 1,000$ to $t=2,000$ days, c) Time course of total community biomass.}
   \label{figures:Fig2}
 \end{center}
 \end{figure}
@@ -73,26 +73,27 @@ We were able to replicate the four figures of Huisman \& Weissing \cite{1999:Hui
 \begin{figure}[H]
 \begin{center} 
  \includegraphics[width=1\textwidth]{../Code/Figures/Figure_3.png}
-  \caption{Bifurcation diagram, for five species competing for five resources. a) Show all of the values of species 1, plotted during the period from $t=2,000$ to $t=4,000$ days, as a function of the half-saturation constant $K_{41}$. Part of a) is magnified in b). c) show the local minima and maxima of species 1, plotted during the period from t= 2,000 to t=4,000 days, as a function of the half-saturation constant $K_{41}$. Part of c) is magnified in d).}
+  \caption{Bifurcation diagram, for five species competing for five resources. a) All of the values of species 1, plotted during the period from $t=2,000$ to $t=4,000$ days, as a function of the half-saturation constant $K_{41}$. Part of a) is magnified in b). c) show the local minima and maxima of species 1, plotted during the period from t= 2,000 to t=4,000 days, as a function of the half-saturation constant $K_{41}$. Part of c) is magnified in d).}
   \label{figures:Fig3}
 \end{center}
 \end{figure}
 
-The bifurcation diagram caption did not seem to correspond to the actual Figure, which seemed to display all of the points of the simulation between $t=2,000$ and $t=4,000$ rather that only the local extrema. We have therefore chosen to draw those two options. 
+The bifurcation diagram \ref{figures:Fig3} caption did not seem to correspond to the actual Figure, which seemed to display all of the points of the simulation between $t=2,000$ and $t=4,000$ rather that only the local extrema. We have therefore chosen to draw those two options. 
 
 \begin{figure}[H]
-\begin{center} 
- \includegraphics[width=0.86\textwidth]{../Code/Figures/Figure_4.pdf}
-  \caption{Competitive chaos and the coexistence of twelve species on five resources. a) abundances of species 1-6, b) abundances of species 7-12. }
-  \label{figures:Fig4}
-\end{center}
-  \end{figure}
+	\begin{center} 
+		\includegraphics[width=0.86\textwidth]{../Code/Figures/Figure_4.pdf}
+ 		\caption{Competitive chaos and the coexistence of twelve species on five resources. a) abundances of species 1-6, b) abundances of species 7-12. }
+ 		\label{figures:Fig4}
+	\end{center}
+\end{figure}
 
 \subsection{Numerical experiments}
 
-For the first numerical experiment, introducing species one after the other as in the original simulation, the following statistics, displaying the proportion (expressed in \%) of experiments with X species present at at different times of the simulation could be obtained: \\
-\input{../Code/Figures/results_exp1}
-\\
+For the first numerical experiment, introducing species one after the other as in the original simulation, the following statistics, displaying the proportion (expressed in \%) of experiments with $X$ species present at different times of the simulation, could be obtained:
+
+\input{../Code/Figures/results_exp2}
+
 A species has been considered present if $N_i > 0.001$. This simulation shows that the persistence of five species or more is very unlikely, and that supersaturated coexistence may be present in a limited domain of parameter space.\\
 \\
 Community dynamics for the first experiment, with possible extinctions, are shown by Figure \ref{figures:Figexp1}. Note that the subfigure 1) represents the original results with $r_i=1 ~\forall i$, while $r_i$ randomly varies as described in the methods for all other panels. 
@@ -107,7 +108,7 @@ Community dynamics for the first experiment, with possible extinctions, are show
 
 We observe contrasted stationary endpoints, possibly with some oscillations or chaos during the invasion process. As shown in Figure \ref{figures:Figexp1}, however, most species do not persist. In many scenarios, at least a few species oscillated around stable points until additional species were introduced but sometimes these stable oscillations were never established in the first place.\\
 \\
-For the second experiment, introducing all species at once, the following statistics, displaying the proportion (expressed in \%) of experiments with X species present at different times of the simulation could be obtained:\\
+For the second experiment, introducing all species at once, the following statistics, displaying the proportion (expressed in \%) of experiments with X species present at different times of the simulation, could be obtained:\\
 \input{../Code/Figures/results_exp2}
 \\
 A species has been considered present if $N_i > 0.001$ at the end of the simulation. This simulation shows that the persistence of five species or more is very unlikely and that supersaturated coexistence is consequently very rare in parameter space.\\
