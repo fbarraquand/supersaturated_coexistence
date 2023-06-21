@@ -247,7 +247,7 @@ for(k in (1:Nb_Fig)){ #Loop for how much additional figures are requested. Every
   
   
   
-  ###########################Fig_exp_2
+###########################Fig_exp_2
   for(j in (1:8)){
     dataresultsFig_exp2 <- read.table(paste("./DataExp/Exp2/dataresults_exp2_", as.character(stats_exp2[FigList_2[k*j], 1]), ".txt", sep = ""))
     

@@ -35,7 +35,7 @@ The growth rates are defined using:
 &K_{	ji} \text{ the half-saturation constant for resource $j$ of species $i$.}
 \end{align*}
 
-In order to reproduce the results of Huisman \& Weissing \cite{1999:Huisman}, the differential equations were integrated using the \texttt{deSolve} package in its 1.32 version in \texttt{R} 4.2.0, using the same parameter sets as in the original article.\\
+In order to reproduce the results of Huisman \& Weissing \cite{1999:Huisman}, the differential equations were integrated using the \texttt{deSolve} \cite{deSolve} package in its 1.32 version in \texttt{R} \cite{R} 4.2.0, using the same parameter sets as in the original article.\\
 
 Multiple simulations are performed and illustrated in the original article as well as here: \\
 In Figure \ref{figures:Fig1} a) and b), 3 species are competing for 3 resources, in c), 6 species are competing for 3 resources (supersaturation) and in d), 9 species are competing for 3 resources (supersaturation again). In Figure \ref{figures:Fig2}, 5 species are competing for 3 resources. In Figure \ref{figures:Fig3}, 5 species are competing for 5 resources. In Figure \ref{figures:Fig4}, 12 species are competing for 5 resources. In Figure \ref{figures:Fig2} and Figure \ref{figures:Fig1} a), b) and for the bifurcation diagram of Figure \ref{figures:Fig3}, all of the species are introduced at the same time in the simulation. In Figure \ref{figures:Fig4} and Figure \ref{figures:Fig1} c), d), the species were introduced sequentially. Huisman et al. \cite{1999:Huisman} have provided the starting times of each species introductions when needed, in addition to the parameters.\\
@@ -47,7 +47,7 @@ We chose to focus on evaluating the robustness of the last simulation of Huisman
 In a first numerical experiment, we considered the exact same invasion sequence as Huisman \& Weissing \cite{1999:Huisman}. 
 In a second step, we started with the full set of species at once.\\
 \\
-In order to conduct the numerical experiments proposed earlier, the method used to plot the fourth Figure has been reused. The two experiments were conducted 500 times each, with as many different parameter sets: the $r_i$,normally all set to the value of $1$, were drawn according to a truncated normal distribution. The mean was $\mu=1$ and the variance was $\sigma=0.1$, corresponding to CV=10\%. The distribution was truncated using $\mu\pm3\sigma$, in other words between $0.7$ and $1.3$.\\~\\ 
+In order to conduct the numerical experiments proposed earlier, the method used to plot the fourth Figure has been reused. The two experiments were conducted 500 times each, with as many different parameter sets: the $r_i$,normally all set to the value of $1$, were drawn according to a truncated normal distribution. The mean was $\mu=1$ and the variance was $\sigma=0.1$, corresponding to CV=10\%. The distribution was truncated using $\mu\pm3\sigma$, in other words between $0.7$ and $1.3$. This range of values remain consistent, and even conservative, when compared to experimental values \cite{2015:Edwards}. As we are trying to challenge the robustness of the replicated simulation, we do not change any other parameters : thus we will only conduct the simulations for a duration of 10000 days, as the original simulations. In order to easily visualise variations in biodiversity, we also measure the number of different species at the times used in the article to introduce new species, i.e. after 1,000, 3,000 and 5,000 days.\\~\\ 
 
 \section{Results}
 \subsection{Reproduction}
@@ -90,11 +90,17 @@ The bifurcation diagram \ref{figures:Fig3} caption did not seem to correspond to
 
 \subsection{Numerical experiments}
 
-For the first numerical experiment, introducing species one after the other as in the original simulation, the following statistics, displaying the proportion (expressed in \%) of experiments with $X$ species present at different times of the simulation, could be obtained:
+For the first numerical experiment, introducing species one after the other as in the original simulation, the following statistics \ref{figures:Figexp1bar} could be obtained:\\
 
-\input{../Code/Figures/results_exp2}
+\begin{figure}[H]
+	\begin{center} 
+		\includegraphics[width=0.86\textwidth]{../Code/Figures/Figure_exp1_bar.pdf}
+ 		\caption{Proportion expressed in \% of simulations with $X$ species present or with observable supersaturated coexistence at different times of the simulation for the first experiment. 500 simulations have been run in total and a species has been considered present if $N_i > 0.001$}
+ 		\label{figures:Figexp1bar}
+	\end{center}
+\end{figure}
 
-A species has been considered present if $N_i > 0.001$. This simulation shows that the persistence of five species or more is very unlikely, and that supersaturated coexistence may be present in a limited domain of parameter space.\\
+Theses statistics shows that the persistence of five species or more is very unlikely, and that supersaturated coexistence may be present in a limited domain of parameter space.\\
 \\
 Community dynamics for the first experiment, with possible extinctions, are shown by Figure \ref{figures:Figexp1}. Note that the subfigure 1) represents the original results with $r_i=1 ~\forall i$, while $r_i$ randomly varies as described in the methods for all other panels. 
 
@@ -108,17 +114,24 @@ Community dynamics for the first experiment, with possible extinctions, are show
 
 We observe contrasted stationary endpoints, possibly with some oscillations or chaos during the invasion process. As shown in Figure \ref{figures:Figexp1}, however, most species do not persist. In many scenarios, at least a few species oscillated around stable points until additional species were introduced but sometimes these stable oscillations were never established in the first place.\\
 \\
-For the second experiment, introducing all species at once, the following statistics, displaying the proportion (expressed in \%) of experiments with X species present at different times of the simulation, could be obtained:\\
-\input{../Code/Figures/results_exp2}
+For the second experiment, introducing all species at once, the following statistics, displaying the proportion (expressed in \%) of experiments with X species present at different times of the simulation, the following statistics \ref{figures:Figexp2bar} could be obtained:\\
+
+\begin{figure}[H]
+	\begin{center} 
+		\includegraphics[width=0.86\textwidth]{../Code/Figures/Figure_exp2_bar.pdf}
+ 		\caption{Proportion expressed in \% of simulations with $X$ species present or with observable supersaturated coexistence at different times of the simulation for the second experiment. 500 simulations have been run in total and a species has been considered present if $N_i > 0.001$}
+ 		\label{figures:Figexp2bar}
+	\end{center}
+\end{figure}
+
+As before, a species has been considered present if $N_i > 0.001$ at the end of the simulation. Even more than when species are introduced little by little, this simulation shows that introducing all species at once and then observing the persistence of five species or more is very unlikely and that supersaturated coexistence is consequently very rare in parameter space with this configuration.\\
 \\
-A species has been considered present if $N_i > 0.001$ at the end of the simulation. This simulation shows that the persistence of five species or more is very unlikely and that supersaturated coexistence is consequently very rare in parameter space.\\
-\\
-Community dynamics for the second experiment, with possible extinctions, are described in the following Figure \ref{figures:Figexp2}, note that the subfigure 1) represent the original results with $r_i=1 ~\forall i$, while $r_i$ randomly varies as described in the methods for all other panels.
+Community dynamics for the second experiment, with possible extinctions, are described in the following Figure \ref{figures:Figexp2}. Note that the subfigure 1) represents the original results with $r_i=1 ~\forall i$, while $r_i$ randomly varies as described in the methods for all other panels.
 
 \begin{figure}[H]
 \begin{center} 
  \includegraphics[width=1\textwidth]{../Code/Figures/Figure_exp2.pdf}
-  \caption{Visualisation of eight different simulations of competitive chaos and coexistence of twelve species on five resources, following the Figure 4 method except that $r_i$ was randomly drawn for each of the species and all species were introduced at once. Except the first panel (original parameters), the simulations illustrated were randomly picked among the 500 of the numerical experiment. Each couple of subplots is labeled with the number of the corresponding simulation. a) abundances of species 1-6, b) abundances of species 7-12.}
+  \caption{Visualisation of eight different simulations of competitive chaos and coexistence of twelve species on five resources, following the Figure 4 method except that $r_i$ was randomly drawn for each of the species and all species were introduced at once. Except for the first panel (original parameters), the simulations illustrated were randomly picked among the 500 of the numerical experiment. Each couple of subplots is labelled with the number of the corresponding simulation. a) abundances of species 1-6, b) abundances of species 7-12.}
   \label{figures:Figexp2}
 \end{center}
 \end{figure}
@@ -129,19 +142,19 @@ As for the first experiment we mostly observed either fixed (non-oscillatory) st
 
 We were able to successfully replicate the figures of the original paper. There are minor differences in species dynamics in Figure~\ref{figures:Fig4}, which are arguably due to differences in numerical integration.\\
 
-The additional numerical experiments showed that slightly changing the values of the $r_i$ parameters almost always prevents the coexistence of twelve species on five resources and mostly prevents supersaturated coexistence in general. This is true when introducing species sequentially as in the original paper, as well as all at once.\\
+The additional numerical experiments showed that slightly changing the values of the $r_i$ parameters within a realistic range of values \cite{2015:Edwards} almost always prevents the coexistence of twelve species on five resources and mostly prevents supersaturated coexistence in general. This is true when introducing species sequentially as in the original paper, as well as all at once.\\
 
-Our results corroborate those of Schippers et al. \cite{2008:Schippers}, who showed that supersaturated coexistence through chaos or oscillations requires particular sets of parameters values, which are not robust to small perturbations. Our results, using a slightly different kind of perturbation, are therefore consistent with their conclusion that supersaturated coexistence is unlikely to solve the paradox of the plankton. Additionally, there are other reasons due to mixing and spatial structure, not considered here, which could render supersaturated coexistence unlikely \cite{2008:Roelke}. 
+Our results corroborate those of Schippers et al. \cite{2008:Schippers}, who showed that supersaturated coexistence through chaos or oscillations requires particular sets of parameters values, which are not robust to small perturbations. Our results, using a slightly different kind of perturbation, are therefore consistent with their conclusion that supersaturated coexistence is unlikely to solve the paradox of the plankton. Additionally, there are other reasons (mixing, spatial structure) not considered here, which could render supersaturated coexistence unlikely \cite{2008:Roelke}. 
 \newpage
 \section{Appendix}
 
-Hereafter more results of the two numerical experiments, in order to allow the reader to have a better idea of the possible behaviors of the simulations. They are presented in the same way as above\\
+Hereafter more results of the two numerical experiments, in order to allow the reader to have a better idea of the possible behaviors of the simulations. They are presented in the same way as above.\\
 
 \foreach \n in {1,2,3}{
 \begin{figure}[H]
 \begin{center} 
  \includegraphics[width=1\textwidth]{../Code/Figures/Figure_exp1_app_\n.pdf}
-  \caption{Another visualisation of eight other different simulations of competitive chaos and coexistence of twelve species on five resources. It is identical to Figure 4 except that intrinsic growth rates $r_i$ are randomly varied. The simulations chosen were randomly picked among the 500 constituting the numerical experiment. Each couple of subplots is labelled with the number of the corresponding simulation. a) abundances of species 1-6, b) abundances of species 7-12. Dashed vertical lines represent the introduction of new species.}
+  \caption{Visualisation of eight other different simulations of competitive chaos and coexistence of twelve species on five resources. It is identical to Figure 4 except that intrinsic growth rates $r_i$ are randomly varied. The simulations chosen were randomly picked among the 500 constituting the numerical experiment. Each couple of subplots is labelled with the number of the corresponding simulation. a) abundances of species 1-6, b) abundances of species 7-12. Dashed vertical lines represent the introduction of new species.}
   \label{figures:Figexp1_app_\n}
 \end{center}
 \end{figure}
@@ -151,7 +164,7 @@ Hereafter more results of the two numerical experiments, in order to allow the r
 \begin{figure}[H]
 \begin{center} 
  \includegraphics[width=1\textwidth]{../Code/Figures/Figure_exp2_app_\n.pdf}
-  \caption{Visualisation of eight different simulations of competitive chaos and coexistence of twelve species on five resources, following the Figure 4 method except that $r_i$ was randomly drawn for each of the species and all species were introduced at once. Except the first panel (original parameters), the simulations illustrated were randomly picked among the 500 of the numerical experiment. Each couple of subplots is labeled with the number of the corresponding simulation. a) abundances of species 1-6, b) abundances of species 7-12.}
+  \caption{Visualisation of eight other different simulations of competitive chaos and coexistence of twelve species on five resources, following the Figure 4 method except that $r_i$ was randomly drawn for each of the species and all species were introduced at once. Except for the first panel (original parameters), the simulations illustrated were randomly picked among the 500 of the numerical experiment. Each couple of subplots is labelled with the number of the corresponding simulation. a) abundances of species 1-6, b) abundances of species 7-12.}
   \label{figures:Figexp2_app_\n}
 \end{center}
 \end{figure}

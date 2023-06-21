@@ -50,6 +50,6 @@ library(plotly)
       )
   }
   
-  save_image(Fig_4,  "./Figures/Figure4.pdf")
+  save_image(Fig_4,  "./Figures/Figure_4.pdf")
   
 }

@@ -3,7 +3,8 @@ library(deSolve)
 
 source("Script_Functions.R")
 
-##########################To obtain Fig_1a and_1b : 
+
+##########################To obtain Fig_1a and 1b : 
 {
   #parameters : (according to the article, in "Methods")
   {
@@ -262,9 +263,9 @@ source("Script_Functions.R")
     write.table(as.data.frame(results_1d[, 1:10]), "./DataHW1999/dataresults_1d.txt")
   }
   
-  }
+}
 
-##########################To obtain Fig_2a, _2b and _2c : 
+##########################To obtain Fig_2a, 2b and 2c : 
 {
   #parameters : (according to the article, in "Methods") 
   {

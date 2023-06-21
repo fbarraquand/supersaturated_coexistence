@@ -1,8 +1,7 @@
 ##########################Used libraries and functions : 
 {
   library(deSolve) 
-  library(truncnorm)
-  library(xtable)
+  library(EnvStats)
 
   source("Script_Functions.R")
 }
@@ -29,7 +28,7 @@
     
     #randomly choosing the parameter r, but assuring that the firsts r will be the "normal" configuration (only ones)
     set.seed(1151)
-    matr_exp1 <- matrix(c(rep(1, 12), rtruncnorm(n_exp1*12, 0.7, 1.3, 1, 0.1)), n_exp1+1, 12, T)
+    matr_exp1 <- matrix(c(rep(1, 12), rnormTrunc(n_exp1*12, 1, 0.1,0.7, 1.3)), n_exp1+1, 12, T)
     
     #saving the values of r  
     r_exp1 <- cbind((1:(n_exp1+1)), matr_exp1)
@@ -150,9 +149,6 @@
   
   print(results_exp1)
   write.table(results_exp1, "./DataExp/Exp1/results_exp1.txt")
-  
-  #Saving the results as LaTex table : 
-  print(xtable(t(results_exp1), type = "latex"), file = "./Figures/results_exp1.tex")
 }
 
 ##########################Experiment 2 : 
@@ -174,7 +170,7 @@
   
   #randomly choosing the parameter r, but assuring that the firsts r will be the "normal" configuration (only ones) 
   set.seed(1473)
-  matr_exp2 <- matrix(c(rep(1, 12), rtruncnorm(n_exp2*12, 0.7, 1.3, 1, 0.1)), n_exp2+1, 12, T)
+  matr_exp2 <- matrix(c(rep(1, 12), rnormTrunc(n_exp1*12, 1, 0.1,0.7, 1.3)), n_exp2+1, 12, T)
   
   #saving the values of r  
   r_exp2 <- cbind((1:(n_exp2+1)), matr_exp2)
@@ -235,10 +231,4 @@
   row.names(results_exp2) <- c(paste("After", c(1000, 3000, 5000, 10000), "days", sep = " "))
   
   write.table(results_exp2, "./DataExp/Exp2/results_exp2.txt")
-  
-  #Saving the results as LaTex table : 
-  print(xtable(t(results_exp2), type = "latex"), file = "./Figures/results_exp2.tex")
-  
-  
-  
 }
