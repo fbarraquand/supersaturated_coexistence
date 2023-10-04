@@ -1,7 +1,7 @@
 ##########################Functions :
 {
   
-  makeparameters<-function(r, D, m, S, K, C){#function that create the parameterseter array used in dXt
+  makeparameters<-function(r, D, m, S, K, C){#function that create the parameter array used in dXt
     
     parameters<-array(0, dim = c(dim(K)[1], dim(K)[2], 4))#Setting the size of the array.
     
@@ -19,7 +19,7 @@
     apply( t( R /(K+R) ) * r, 1, min)#specific growth rate ; Equation (3)
   }
   
-  dXt <- function( t, X, parameters ){ #function that gives the values of the derivatives of N and R
+  dXt <- function(t, X, parameters ){ #function that gives the values of the derivatives of N and R
     
     #extracting the parameters from the parameters array : 
     
@@ -37,8 +37,7 @@
     
     dN<-N*(mu(R, r, K)-m)#Equation (1)
     dR<-D*(S-R)-C%*%(N*mu(R, r, K))#Equation (2)
-    dX<-list(c(dN, dR))
-    
+    dX<-c(dN, dR)
+    dX<-list(ifelse(X<0, 0, dX))#Filtering out negative outliers
   }
-  
 }

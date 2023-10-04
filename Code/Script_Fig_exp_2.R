@@ -210,24 +210,29 @@
 
 ##########################Fig_exp_2_bar
 {
-  results_exp2 <- as.data.frame(t(read.table("./DataExp/Exp2/results_exp2.txt")), stringsAsFactors = FALSE)
+  xaxis <- c(paste(0:12, "species", sep = " "), "Supersaturated")
+  
+  results_exp2 <- data.frame(xaxis, t(read.table("./DataExp/Exp2/results_exp2.txt")), stringsAsFactors = FALSE)
+  
+  results_exp2$xaxis <- factor(results_exp2$xaxis, levels = results_exp2[["xaxis"]])
+  
   
   Fig_exp2_bar <- {plot_ly(results_exp2, 
-                           x = c(paste(0:12, "species", sep = " "), "Supersaturated"),
-                           y = results_exp1[,1], 
+                           x = ~xaxis,
+                           y = ~After.1000.days, 
                            name = "After 1000 days",
                            type = "bar"
-  )%>%
-      add_trace(y = results_exp2[,2], 
-                name = "After 3000 days")%>%
-      add_trace(y = results_exp2[,3], 
-                name = "After 5000 days")%>%
-      add_trace(y = results_exp2[,4], 
-                name = "After 10000 days")%>%
-      layout(xaxis = list(title = "", tickangle = -45, ordered = T),
-             yaxis = list(title = 'Pourcentage of simulations'),
-             bargap = 0.33,
-             legend = list(x = 0.7, y = 0.9))
+                          )%>%
+                          add_trace(y = ~After.3000.days, 
+                                    name = "After 3000 days")%>%
+                          add_trace(y = ~After.5000.days, 
+                                    name = "After 5000 days")%>%
+                          add_trace(y = ~After.10000.days, 
+                                    name = "After 10000 days")%>%
+                          layout(xaxis = list(title = "", tickangle = -45, ordered = F),
+                                 yaxis = list(title = 'Percentage of simulations'),
+                                 bargap = 0.33,
+                                 legend = list(x = 0.7, y = 0.9))
   }
   
   save_image(Fig_exp2_bar, "./Figures/Figure_exp2_bar.pdf")

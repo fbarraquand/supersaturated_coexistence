@@ -86,7 +86,7 @@ reticulate::py_run_string("import sys")
 
 ### Computation times
 
-Note that some computations require more time than others, such as those required for the third Figure (bifurcation plots) and the two additional numerical experiments, that run the differential equations for long periods of time and numerous parameter sets. Some calculations during experiments generate errors and warnings that are handled by the code and do not impact the calculation, even if they are displayed.
+Note that some computations require more time than others, such as those required for the third Figure (bifurcation plots) and the two additional numerical experiments, that run the differential equations for long periods of time and numerous parameter sets. Some calculations during experiments generate errors and warnings that are handled by our code and do not impact the calculation, even if they are displayed.
 
 The following are indicative calculation times for the various parts of the code:
 

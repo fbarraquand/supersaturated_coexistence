@@ -239,22 +239,27 @@
 
 ##########################Fig_exp_1_bar
 {
-  results_exp1 <- as.data.frame(t(read.table("./DataExp/Exp1/results_exp1.txt")), stringsAsFactors = FALSE)
+  xaxis <- c(paste(0:12, "species", sep = " "), "Supersaturated")
+  
+  results_exp1 <- data.frame(xaxis, t(read.table("./DataExp/Exp1/results_exp1.txt")), stringsAsFactors = FALSE)
+  
+  results_exp1$xaxis <- factor(results_exp1$xaxis, levels = results_exp1[["xaxis"]])
+  
   
   Fig_exp1_bar <- {plot_ly(results_exp1, 
-                           x = c(paste(0:12, "species", sep = " "), "Supersaturated"),
-                           y = results_exp1[,1], 
+                           x = ~xaxis,
+                           y = ~After.1000.days, 
                            name = "After 1000 days",
                            type = "bar"
                           )%>%
-                          add_trace(y = results_exp1[,2], 
+                          add_trace(y = ~After.3000.days, 
                                     name = "After 3000 days")%>%
-                          add_trace(y = results_exp1[,3], 
+                          add_trace(y = ~After.5000.days, 
                                     name = "After 5000 days")%>%
-                          add_trace(y = results_exp1[,4], 
+                          add_trace(y = ~After.10000.days, 
                                     name = "After 10000 days")%>%
-                          layout(xaxis = list(title = "", tickangle = -45, ordered = T),
-                                 yaxis = list(title = 'Pourcentage of simulations'),
+                          layout(xaxis = list(title = "", tickangle = -45, ordered = F),
+                                 yaxis = list(title = 'Percentage of simulations'),
                                  bargap = 0.33,
                                  legend = list(x = 0.7, y = 0.9))
                     }

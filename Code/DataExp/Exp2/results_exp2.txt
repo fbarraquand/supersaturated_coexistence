@@ -1,5 +1,5 @@
 "0 species" "1 species" "2 species" "3 species" "4 species" "5 species" "6 species" "7 species" "8 species" "9 species" "10 species" "11 species" "12 species" "Supersaturated"
-"After 1000 days" 0 24.4 48.6 6.8 5 7.4 6.2 1.2 0.4 0.2 0 0 0 8
-"After 3000 days" 0 30 44.4 7 6.4 7.8 3.6 0.6 0.4 0 0 0 0 4.6
-"After 5000 days" 0 31.4 43.2 7.2 7.4 7 3.2 0.6 0.2 0 0 0 0 4
-"After 10000 days" 0 32.4 42.6 7.6 7.6 6 3.2 0.6 0.2 0 0 0 0 4
+"After 1000 days" 0 26 50.2 4.6 6.6 8.4 2 1.4 1 0 0 0 0 4.4
+"After 3000 days" 0 32.8 44.8 5 9.2 4.6 3.4 0.4 0 0 0 0 0 3.8
+"After 5000 days" 0 34.6 43 5.2 9.6 4.8 2.6 0.4 0 0 0 0 0 3
+"After 10000 days" 0 36 42.2 5.8 8.8 4.8 2.2 0.4 0 0 0 0 0 2.6
