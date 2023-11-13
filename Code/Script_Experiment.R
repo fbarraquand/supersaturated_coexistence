@@ -21,8 +21,8 @@
     m_exp1<-rep(D_exp1, 12)
     S_exp1<-c(6, 10, 14, 4, 9)
     
-    K_exp1<- matrix(scan("./Matrix_K/K_4.txt"), 5, 12, T)
-    C_exp1<- matrix(scan("./Matrix_C/C_4.txt"), 5, 12, T)
+    K_exp1 <- as.matrix(read.table("./Matrix_K/K_4.table", sep = " ", numerals = "no.loss"))
+    C_exp1 <- as.matrix(read.table("./Matrix_C/C_4.table", sep = " ", numerals = "no.loss"))
     
     parameters_exp1<-makeparameters(rep(0, 12), D_exp1, m_exp1, S_exp1, K_exp1, C_exp1)
     
@@ -165,8 +165,8 @@
   m_exp2<-rep(D_exp2, 12)
   S_exp2<-c(6, 10, 14, 4, 9)
   
-  K_exp2<- matrix(scan("./Matrix_K/K_4.txt"), 5, 12, T)
-  C_exp2<- matrix(scan("./Matrix_C/C_4.txt"), 5, 12, T)
+  K_exp2 <- as.matrix(read.table("./Matrix_K/K_4.table", sep = " ", numerals = "no.loss"))
+  C_exp2 <- as.matrix(read.table("./Matrix_C/C_4.table", sep = " ", numerals = "no.loss"))
   
   #randomly choosing the parameter r, but assuring that the firsts r will be the "normal" configuration (only ones) 
   set.seed(1473)

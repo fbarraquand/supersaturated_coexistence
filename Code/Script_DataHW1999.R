@@ -12,9 +12,9 @@ source("Script_Functions.R")
     D_1ab<- 0.25
     m_1ab<-rep(D_1ab,3)
     S_1ab<-rep(10,3)
-    
-    K_1ab<- matrix(scan("./Matrix_K/K_1ab.txt"), 3, 3, T)
-    C_1ab<- matrix(scan("./Matrix_C/C_1ab.txt"), 3, 3, T)
+
+    K_1ab <- as.matrix(read.table("./Matrix_K/K_1ab.table", sep = " ", numerals = "no.loss"))
+    C_1ab <- as.matrix(read.table("./Matrix_C/C_1ab.table", sep = " ", numerals = "no.loss"))
     
     parameters_1ab<-makeparameters(r_1ab, D_1ab, m_1ab, S_1ab, K_1ab, C_1ab)#parameters array for Fig1a and Fig1b
   }
@@ -48,9 +48,10 @@ source("Script_Functions.R")
     m_1c<-rep(D_1c, 6)
     S_1c<-c(6, 10, 14)
     
-    K_1c<- matrix(scan("./Matrix_K/K_1c.txt"), 3, 6, T)
-    C_1c<- matrix(scan("./Matrix_C/C_1c.txt"), 3, 6, T)
-  
+    
+    K_1c <- as.matrix(read.table("./Matrix_K/K_1c.table", sep = " ", numerals = "no.loss"))
+    C_1c <- as.matrix(read.table("./Matrix_C/C_1c.table", sep = " ", numerals = "no.loss"))
+
     parameters_1c <- makeparameters(r_1c, D_1c, m_1c, S_1c, K_1c, C_1c)
       
   }
@@ -124,7 +125,7 @@ source("Script_Functions.R")
                       results_3_1c[, 1:7][-dim(results_3_1c)[1], ], 
                       results_4_1c[, 1:7])
       
-    #saving the data to plot it laer
+    #saving the data to plot it later
     write.table(as.data.frame(results_1c[, 1:7]), "./DataHW1999/dataresults_1c.txt")
   }
   
@@ -139,8 +140,9 @@ source("Script_Functions.R")
     m_1d<-rep(D_1d, 9)
     S_1d<-c(10, 10, 10)
     
-    K_1d<- matrix(scan("./Matrix_K/K_1d.txt"), 3, 9, T)
-    C_1d<- matrix(scan("./Matrix_C/C_1d.txt"), 3, 9, T)
+    K_1d <- as.matrix(read.table("./Matrix_K/K_1d.table", sep = " ", numerals = "no.loss"))
+    C_1d <- as.matrix(read.table("./Matrix_C/C_1d.table", sep = " ", numerals = "no.loss"))
+    
     
     parameters_1d <- makeparameters(r_1d, D_1d, m_1d, S_1d, K_1d, C_1d)
     
@@ -274,8 +276,8 @@ source("Script_Functions.R")
     m_2abc<-rep(D_2abc, 5)
     S_2abc<-c(6, 10, 14, 4, 9) 
     
-    K_2abc<- matrix(scan("./Matrix_K/K_23.txt"), 5, 5, T)
-    C_2abc<- matrix(scan("./Matrix_C/C_23.txt"), 5, 5, T)
+    K_2abc <- as.matrix(read.table("./Matrix_K/K_23.table", sep = " ", numerals = "no.loss"))
+    C_2abc <- as.matrix(read.table("./Matrix_C/C_23.table", sep = " ", numerals = "no.loss"))
     
     parameters_2abc<-makeparameters(r_2abc, D_2abc, m_2abc, S_2abc, K_2abc, C_2abc)#parameters matrix for Fig_2a, Fig_2b and Fig_2c
   }
@@ -320,8 +322,8 @@ source("Script_Functions.R")
     m_3ab = rep(D_3ab, 5)
     S_3ab = c(6, 10, 14, 4, 9)
     
-    K_3ab<- matrix(scan("./Matrix_K/K_23.txt"), 5, 5, T)
-    C_3ab<- matrix(scan("./Matrix_C/C_23.txt"), 5, 5, T)
+    K_3ab <- as.matrix(read.table("./Matrix_K/K_23.table", sep = " ", numerals = "no.loss"))
+    C_3ab <- as.matrix(read.table("./Matrix_C/C_23.table", sep = " ", numerals = "no.loss"))
     
     parameters_3ab <- makeparameters(r_3ab, D_3ab, m_3ab, S_3ab, K_3ab, C_3ab) 
   }  
@@ -378,8 +380,8 @@ source("Script_Functions.R")
     m_4ab<-rep(D_4ab, 12)
     S_4ab<-c(6, 10, 14, 4, 9)
     
-    K_4ab<- matrix(scan("./Matrix_K/K_4.txt"), 5, 12, T)
-    C_4ab<- matrix(scan("./Matrix_C/C_4.txt"), 5, 12, T)
+    K_4ab <- as.matrix(read.table("./Matrix_K/K_4.table", sep = " ", numerals = "no.loss"))
+    C_4ab <- as.matrix(read.table("./Matrix_C/C_4.table", sep = " ", numerals = "no.loss"))
     
     parameters_4ab<-makeparameters(r_4ab, D_4ab, m_4ab, S_4ab, K_4ab, C_4ab)#parameters matrix for Fig_2a, Fig_2b and Fig_2c
   }
