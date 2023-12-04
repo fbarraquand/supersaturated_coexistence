@@ -22,8 +22,9 @@ with parameters
 & D \text{ the system's turnover rate}\\
 & S_j \text{ the supply concentration of resource $j$}\\
 & c_{ji} \text{ the content of resource $j$ in species $i$}\\
-& \mu_i \text{ the growth rate of species $i$, defined using the Monod equation and Liebig's law of minimum: }
+& \mu_i \text{ the growth rate of species $i$,}
 \end{align*}
+defined using the Monod equation and Liebig's law of the minimum:
 
 \begin{align}
 &\mu_i(R_1,...,R_k)~=~\min_{j\in[\![1,k]\!]} \left( \frac{r_iR_j}{K_{ji}+R_j} \right). 
@@ -42,9 +43,9 @@ In Figure \ref{figures:Fig1} a) and b), 3 species are competing for 3 resources,
 
 As Schippers et al. \cite{2001:Schippers}, we were wondering how and why the parameter sets were initially chosen, and if the results would remain the same for slightly different parameters. Several simulations were made in Schippers et al. \cite{2001:Schippers} and Huisman et al.'s response \cite{2001:Huisman}, in order to evaluate how robust was supersaturated coexistence. In the same spirit, we carried out some new numerical experiments with a slightly different perspective.\\
 
-We chose to focus on evaluating the robustness of the last simulation of Huisman \& Weissing \cite{1999:Huisman}, displayed on Figure \ref{figures:Fig4}. We focused on perturbating the growth rate parameter, $r_i$, denoted as $\mu_{\text{max}}$ in the follow-up articles \cite{2001:Schippers, 2001:Huisman}. As changing only a single one of the $n$ intrinsic growth rates $r_i$ (as done earlier in the follow-up articles \cite{2001:Schippers, 2001:Huisman}) appeared a little artificial to us, we chose to randomly perturb all of the $n$ intrinsic growth rates $r_i$ at once, as would typically do an ecosystem-wide perturbation that is not directly related to the modelled resources. Furthermore, it is overall more realistic, as some articles \cite{2015:Edwards} suport the idea that growth rates may vary between species even in the absence of perturbations. In a first numerical experiment, we considered the exact same invasion sequence as Huisman \& Weissing \cite{1999:Huisman}.  In the second numerical experiment, we started with the full set of species at once.\\
-\\
-In order to conduct the numerical experiments proposed earlier, the method used to plot the fourth Figure has been reused. The two experiments were conducted 500 times each, with as many different parameter sets: the $r_i$, normally all set to the value of $1$, were drawn according to a truncated normal distribution. The mean was $\mu=1$ and the variance was $\sigma=0.1$, corresponding to CV = 10\%. The distribution was truncated using $\mu\pm3\sigma$, in other words $r_i$ values remain between $0.7$ and $1.3$ (and most values are much closer to 1). This range of values remains consistent, and even conservative, when compared to experimental values \cite{2015:Edwards}, where CVs can be larger. As we are trying to challenge the robustness of the replicated simulation, we do not change any other parameters: thus we only conduct the simulations for a duration of 10000 days, as the original simulations. However, in order to easily visualise how biodiversity changes over time, we also measure the number of extant species at the times used in the article to introduce new species, i.e. after 1,000, 3,000 and 5,000 days.\\~\\ 
+We chose to focus on evaluating the robustness of the last simulation of Huisman \& Weissing \cite{1999:Huisman}, displayed on Figure \ref{figures:Fig4}. We focused on perturbating the growth rate parameter, $r_i$, denoted as $\mu_{\text{max}}$ in the follow-up articles \cite{2001:Schippers, 2001:Huisman}. As changing only a single one of the $n$ intrinsic growth rates $r_i$ (as done earlier in the follow-up articles \cite{2001:Schippers, 2001:Huisman}) appeared a little artificial to us, we chose to randomly perturb all of the $n$ intrinsic growth rates $r_i$ at once, as would typically do an ecosystem-wide perturbation that is not directly related to the modelled resources. Furthermore, it seems overall more realistic, as the literature supports the idea that growth rates may vary between species even in the absence of perturbations \cite{2015:Edwards}. In a first numerical experiment, we considered the exact same invasion sequence as Huisman \& Weissing \cite{1999:Huisman}.  In the second numerical experiment, we started with the full set of species at once.\\
+
+In order to conduct the numerical experiments proposed earlier, the method used to plot the fourth Figure has been reused. The two experiments were conducted 500 times each, with as many different parameter sets: the $r_i$, originally all set to the value of $1$, were drawn according to a truncated normal distribution. The mean was $\mu=1$ and the variance was $\sigma=0.1$, corresponding to CV = 10\%. The distribution was truncated using $\mu\pm3\sigma$, in other words $r_i$ values remain between $0.7$ and $1.3$ (and most values are much closer to 1). This range of values remains consistent, and even conservative, when compared to experimental values \cite{2015:Edwards}, where CVs can be larger. As we are trying to challenge the robustness of the replicated simulation, we do not change any other parameters: thus we only conduct the simulations for a duration of 10000 days, as the original simulations. However, in order to easily visualise how biodiversity changes over time, we also measure the number of extant species at the times used in the article to introduce new species, i.e. after 1,000, 3,000 and 5,000 days.\\~\\
 
 \section{Results}
 
@@ -54,7 +55,7 @@ We were able to replicate the four figures of Huisman \& Weissing \cite{1999:Hui
 
 \begin{figure}[H]
 \begin{center} 
- \includegraphics[width=1\textwidth]{../Code/Figures/Figure_1.pdf}
+ \includegraphics[width=0.93\textwidth]{../Code/Figures/Figure_1.pdf}
   \caption{Oscillations on three resources. a), Time course of the abundances of three species competing for three resources. b), The corresponding limit cycle. c), Small-amplitude oscillations of six species on three resources. d), Large-amplitude oscillations of nine species on three resources.}
   \label{figures:Fig1}
 \end{center}
@@ -62,7 +63,7 @@ We were able to replicate the four figures of Huisman \& Weissing \cite{1999:Hui
 
 \begin{figure}[H]
 \begin{center} 
- \includegraphics[width=1\textwidth]{../Code/Figures/Figure_2.pdf}
+ \includegraphics[width=0.93\textwidth]{../Code/Figures/Figure_2.pdf}
   \caption{Chaos on five resources. a) Time course of the abundances of five species competing for five resources, b) The corresponding chaotic attractor. The trajectory is plotted for three of the five species, from the period from $t= 1,000$ to $t=2,000$ days, c) Time course of total community biomass.}
   \label{figures:Fig2}
 \end{center}
@@ -86,7 +87,7 @@ The bifurcation diagram \ref{figures:Fig3} caption did not seem to correspond to
 	\end{center}
 \end{figure}
 
-\subsection{Additional Numerical experiments}
+\subsection{Additional numerical experiments}
 
 For the first numerical experiment, which introduces species sequentially as in the original simulation, the distribution of the number of extant species is displayed in Figure~\ref{figures:Figexp1bar}.
 
@@ -132,7 +133,7 @@ Community dynamics for the second experiment, with possible extinctions, are des
 \end{center}
 \end{figure}
 
-As for the first experiment we mostly observed either fixed (non-oscillatory) stationary endpoints or oscillations, but with even less persistent species in the latter case, as shown in Figure \ref{figures:Figexp2}. %% FB 30/06/2023: Fig. 8 does not show that very well now, I think. 
+As for the first experiment, we mostly observed either fixed (non-oscillatory) stationary endpoints or oscillations (Figure \ref{figures:Figexp2}), but with even less persistent species than for the first experiment. 
 
 \section{Discussion}
 
